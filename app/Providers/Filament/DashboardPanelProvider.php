@@ -55,6 +55,9 @@ class DashboardPanelProvider extends PanelProvider
                 Authenticate::class,
             ])
             ->databaseNotifications()
-            ->databaseNotificationsPolling('3s');
+            ->databaseNotificationsPolling('3s')
+            ->plugins([
+                \BezhanSalleh\FilamentShield\FilamentShieldPlugin::make(),
+            ]);
     }
 }

@@ -21,8 +21,9 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Get;
 use Filament\Forms\Set;
 use Illuminate\Support\Collection;
+use BezhanSalleh\FilamentShield\Contracts\HasShieldPermissions;
 
-class UserResource extends Resource
+class UserResource extends Resource implements HasShieldPermissions
 {
     protected static ?string $model = User::class;
     protected static ?string $navigationGroup = 'Gestión de Usuarios';
@@ -31,6 +32,19 @@ class UserResource extends Resource
     protected static ?string $pluralLabel = 'Usuarios';
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+
+    public static function getPermissionPrefixes(): array
+    {
+        return [
+            'view',
+            'view_any',
+            'create',
+            'update',
+            'delete',
+            'delete_any',
+            'publish'
+        ];
+    }
 
     public static function form(Form $form): Form
     {
@@ -83,7 +97,12 @@ class UserResource extends Resource
                         ->required(),
                     TextInput::make('address')
                         ->columnSpan(2)
-                        ->required()
+                        ->required(),
+                    Select::make('roles')
+                        ->relationship('roles', 'name')
+                        ->multiple()
+                        ->preload()
+                        ->searchable(),
 
                 ])
             ]);
