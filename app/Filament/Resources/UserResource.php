@@ -40,9 +40,14 @@ class UserResource extends Resource implements HasShieldPermissions
             'view_any',
             'create',
             'update',
+            'restore',
+            'restore_any',
+            'replicate',
+            'reorder',
             'delete',
             'delete_any',
-            'publish'
+            'force_delete',
+            'force_delete_any',
         ];
     }
 
