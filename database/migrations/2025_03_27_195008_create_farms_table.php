@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('web')->nullable();
             $table->string('email')->nullable();
             $table->enum('status', ['activa', 'suspendida', 'cerrada']);
+            $table->string('vatieties')->nullable();
             
             $table->foreignId('user_id')->references('id')->on('users');
             $table->timestamps();

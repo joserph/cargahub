@@ -23,7 +23,8 @@ class Farm extends Model
         'web',
         'user_id',
         'email',
-        'status'
+        'status',
+        'vatieties'
     ];
 
     public function country()
@@ -45,4 +46,8 @@ class Farm extends Model
     {
         return $this->hasMany(FarmPhone::class);
     }
+
+    protected $casts = [
+        'vatieties' => 'array',
+    ];
 }

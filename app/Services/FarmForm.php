@@ -7,6 +7,7 @@ use App\Models\State;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Get;
 use Filament\Forms\Set;
@@ -48,6 +49,14 @@ final class FarmForm
                     Select::make('status')
                         ->options(self::$status)
                         ->required(),
+                    TagsInput::make('vatieties')
+                        ->separator(',')
+                        ->suggestions([
+                            'tailwindcss',
+                            'alpinejs',
+                            'laravel',
+                            'livewire',
+                        ]),
                     Repeater::make('phones')
                         ->label('Tefefono')
                         ->relationship()
