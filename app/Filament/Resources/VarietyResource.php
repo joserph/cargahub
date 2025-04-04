@@ -5,7 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\VarietyResource\Pages;
 use App\Filament\Resources\VarietyResource\RelationManagers;
 use App\Models\Variety;
-use Filament\Tables\Actions\CreateAction;
+use Filament\Pages\Actions\CreateAction;
 use Filament\Forms;
 use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\TextInput;
@@ -14,12 +14,16 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Closure;
 
 class VarietyResource extends Resource
 {
     protected static ?string $model = Variety::class;
+    protected static ?string $modelLabel = 'Variedad';
+    protected static ?string $pluralLabel = 'Variedades';
+
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -35,6 +39,15 @@ class VarietyResource extends Resource
                     ->required()
                     ->dehydrateStateUsing(fn (string $state): string => strtoupper($state)),
             ]);
+    }
+
+    protected function handleRecordUpdate(Model $record, array $data): Model
+    {
+        dd('algo');
+        $data['updated_by'] = auth()->id();
+        $record->update($data);
+
+        return $record;
     }
 
     public static function table(Table $table): Table
@@ -61,6 +74,16 @@ class VarietyResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->headerActions([
+                Tables\Actions\CreateAction::make()
+                    ->modalHeading('Nuevo Proyecto')
+                    ->mutateFormDataUsing(function (array $data): array {
+                        dd('algo1');
+                        $data['user_id'] = auth()->id();
+                
+                        return $data;
+                    }),
+            ])
             ->filters([
                 //
             ])
@@ -85,7 +108,7 @@ class VarietyResource extends Resource
     {
         return [
             'index' => Pages\ListVarieties::route('/'),
-            'create' => Pages\CreateVariety::route('/create'),
+            //'create' => Pages\CreateVariety::route('/create'),
             'edit' => Pages\EditVariety::route('/{record}/edit'),
         ];
     }

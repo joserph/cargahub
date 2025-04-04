@@ -12,6 +12,7 @@ class CreateVariety extends CreateRecord
 
     protected function mutateFormDataBeforeCreate(array $data): array
     {
+        dd('algo');
         $data['user_id'] = auth()->id();
         $data['user_update'] = auth()->id();
 
