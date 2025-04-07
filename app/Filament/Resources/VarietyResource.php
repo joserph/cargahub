@@ -41,15 +41,6 @@ class VarietyResource extends Resource
             ]);
     }
 
-    protected function handleRecordUpdate(Model $record, array $data): Model
-    {
-        dd('algo');
-        $data['updated_by'] = auth()->id();
-        $record->update($data);
-
-        return $record;
-    }
-
     public static function table(Table $table): Table
     {
         return $table
@@ -76,10 +67,10 @@ class VarietyResource extends Resource
             ])
             ->headerActions([
                 Tables\Actions\CreateAction::make()
-                    ->modalHeading('Nuevo Proyecto')
+                    ->modalHeading('Agregar Variedad')
                     ->mutateFormDataUsing(function (array $data): array {
-                        dd('algo1');
                         $data['user_id'] = auth()->id();
+                        $data['user_update'] = auth()->id();
                 
                         return $data;
                     }),
