@@ -23,9 +23,8 @@ class VarietyResource extends Resource
     protected static ?string $model = Variety::class;
     protected static ?string $modelLabel = 'Variedad';
     protected static ?string $pluralLabel = 'Variedades';
-
-
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    
 
     public static function form(Form $form): Form
     {
@@ -79,7 +78,13 @@ class VarietyResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\EditAction::make()
+                ->modalHeading('Editar Variedad')
+                ->mutateFormDataUsing(function (array $data): array {
+                    $data['user_update'] = auth()->id();
+            
+                    return $data;
+                }),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -100,7 +105,7 @@ class VarietyResource extends Resource
         return [
             'index' => Pages\ListVarieties::route('/'),
             //'create' => Pages\CreateVariety::route('/create'),
-            'edit' => Pages\EditVariety::route('/{record}/edit'),
+            //'edit' => Pages\EditVariety::route('/{record}/edit'),
         ];
     }
 }
