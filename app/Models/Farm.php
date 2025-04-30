@@ -12,7 +12,6 @@ class Farm extends Model
 
     protected $fillable = [
         'name',
-        'phone',
         'address',
         'country_id',
         'state_id',
@@ -22,7 +21,6 @@ class Farm extends Model
         'ruc',
         'web',
         'user_id',
-        'email',
         'status',
         'vatieties'
     ];
@@ -46,6 +44,12 @@ class Farm extends Model
     {
         return $this->hasMany(FarmPhone::class);
     }
+
+    /*public function emails(): HasMany
+    {
+        return $this->hasMany(FarmEmail::class);
+    }*/
+
 
     protected $casts = [
         'vatieties' => 'array',
