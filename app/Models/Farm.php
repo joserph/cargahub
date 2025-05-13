@@ -45,10 +45,15 @@ class Farm extends Model
         return $this->hasMany(FarmPhone::class);
     }
 
-    /*public function emails(): HasMany
+    public function varieties()
+    {
+        return $this->belongsToMany(Variety::class);
+    }
+
+    public function emails(): HasMany
     {
         return $this->hasMany(FarmEmail::class);
-    }*/
+    }
 
 
     protected $casts = [

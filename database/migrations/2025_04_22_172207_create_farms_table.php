@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('farms', function (Blueprint $table) {
             $table->id();
 
-            $table->string('name');
-            $table->string('tradename');
+            $table->string('name')->unique();
+            $table->string('tradename')->unique();
             $table->string('ruc')->unique();
-            $table->string('web');
+            $table->string('web')->nullable();
             $table->boolean('status')->index()->default(true);;
-            $table->string('vatieties');
+            //$table->string('vatieties');
             $table->string('address');
             $table->foreignId('country_id')->nullable()->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('state_id')->nullable()->constrained()->onUpdate('cascade')->onDelete('cascade');

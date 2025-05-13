@@ -20,4 +20,9 @@ class Variety extends Model
     {
         return $this->belongsTo(User::class, 'user_update');
     }
+
+    public function farms()
+{
+    return $this->belongsToMany(Farm::class);
+}
 }
