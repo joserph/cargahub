@@ -11,5 +11,11 @@ use Filament\Resources\Pages\ViewRecord;
 class ViewFarm extends ViewRecord
 {
     protected static string $resource = FarmResource::class;
+    // protected static ?string $clusterBreadcrumb = 'cluster';
+
+    // public function getBreadcrumbs(): array
+    // {
+    //     return [];
+    // }
 
 }

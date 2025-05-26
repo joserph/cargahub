@@ -20,5 +20,10 @@ class ListFarms extends ListRecords
                 //->slideOver(),
         ];
     }
+
+    public function getBreadcrumbs(): array
+    {
+        return [];
+    }
     
 }
