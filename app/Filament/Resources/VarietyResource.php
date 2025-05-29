@@ -12,6 +12,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\Action;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -23,7 +24,7 @@ class VarietyResource extends Resource
     protected static ?string $model = Variety::class;
     protected static ?string $modelLabel = 'Variedad';
     protected static ?string $pluralLabel = 'Variedades';
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-sun';
     
 
     public static function form(Form $form): Form
@@ -31,9 +32,11 @@ class VarietyResource extends Resource
         return $form
             ->schema([
                 TextInput::make('name')
+                    ->label('Nombre')
                     ->required()
                     ->dehydrateStateUsing(fn (string $state): string => strtoupper($state)),
                 TextInput::make('scientific_name')
+                    ->label('Nombre Científico')
                     ->maxLength(255)
                     ->required()
                     ->dehydrateStateUsing(fn (string $state): string => strtoupper($state)),
@@ -45,8 +48,10 @@ class VarietyResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
+                    ->label('Nombre')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('scientific_name')
+                    ->label('Nombre Científico')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('user.name')
                     ->searchable()
@@ -64,22 +69,22 @@ class VarietyResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
-            ->headerActions([
-                Tables\Actions\CreateAction::make()
-                    ->modalHeading('Agregar Variedad')
-                    ->mutateFormDataUsing(function (array $data): array {
-                        $data['user_id'] = auth()->id();
-                        $data['user_update'] = auth()->id();
-                
-                        return $data;
-                    }),
-            ])
             ->filters([
                 //
             ])
             ->actions([
+                Action::make('verDetalle')
+                    ->label('Ver')
+                    ->icon('heroicon-o-eye')
+                    ->action(fn (Variety $record, array $data) => null) // no necesitas lógica aquí
+                    ->modalHeading('Detalles de la variedad')
+                    ->modalSubmitAction(false)
+                    ->modalCancelActionLabel('Cerrar')
+                    ->modalContent(function (Variety $record) {
+                        return view('filament.varieties.modal-details', ['record' => $record]);
+                    }),
                 Tables\Actions\EditAction::make()
-                ->modalHeading('Editar Variedad')
+                ->modalHeading(fn ($record) => "Editar variedad: {$record->name}")
                 ->mutateFormDataUsing(function (array $data): array {
                     $data['user_update'] = auth()->id();
             
@@ -104,7 +109,7 @@ class VarietyResource extends Resource
     {
         return [
             'index' => Pages\ListVarieties::route('/'),
-            //'create' => Pages\CreateVariety::route('/create'),
+            // 'create' => Pages\CreateVariety::route('/create'),
             //'edit' => Pages\EditVariety::route('/{record}/edit'),
         ];
     }

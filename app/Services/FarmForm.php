@@ -17,12 +17,6 @@ use Illuminate\Support\Collection;
 
 final class FarmForm
 {
-    protected static array $status = [
-        'activa'        => 'Activa',
-        'suspendida'    => 'Suspendida',
-        'cerrada'       => 'Cerrada',
-    ];
-
     public static function schema(): array
     {
         return [
@@ -32,6 +26,8 @@ final class FarmForm
                 TextInput::make('name')->columnSpan(['sm' => 2, 'md' => 2, 'lg' => 3, 'xl' => 3])
                     ->autofocus()
                     ->extraInputAttributes(['class' => 'fi-uppercase'])
+                    // ->formatStateUsing(fn($state) => strtoupper($state))
+                    ->dehydrateStateUsing(fn ($state) => strtoupper($state))
                     ->label('Nombre de la finca')
                     ->unique(ignoreRecord: true)
                     ->required(),
@@ -44,6 +40,7 @@ final class FarmForm
                 TextInput::make('tradename')->columnSpan(['sm' => 2, 'md' => 2, 'lg' => 3, 'xl' => 3])
                     ->extraInputAttributes(['class' => 'fi-uppercase'])
                     ->unique(ignoreRecord: true)
+                    ->dehydrateStateUsing(fn ($state) => strtoupper($state))
                     ->required()
                     ->label('Nombre Comercial'),
                 Select::make('varieties')->columnSpan(['sm' => 2, 'md' => 1, 'lg' => 1, 'xl' => 1])
@@ -94,6 +91,7 @@ final class FarmForm
                     ->required(),
                 TextInput::make('address')
                     ->label('Dirección')
+                    ->dehydrateStateUsing(fn ($state) => ucwords($state))
                     ->columnSpanFull()
                     ->required(),
                 ]),

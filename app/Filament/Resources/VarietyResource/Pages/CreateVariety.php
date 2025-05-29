@@ -10,7 +10,7 @@ class CreateVariety extends CreateRecord
 {
     protected static string $resource = VarietyResource::class;
 
-    protected function mutateFormDataBeforeCreate(array $data): array
+    protected function mutateFormDataBeforSave(array $data): array
     {
         dd('algo');
         $data['user_id'] = auth()->id();

@@ -73,13 +73,9 @@ class FarmResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make()
-                ->modalHeading(fn ($record) => "Editar finca: {$record->name}")
-                ->modalWidth('7xl'),
                 //Tables\Actions\DeleteAction::make(),
                 Tables\Actions\ForceDeleteAction::make(),
                 Tables\Actions\RestoreAction::make(),
-                //Tables\Actions\ViewAction::make()->label('Ver detalles')->icon('heroicon-o-eye'),
                 Action::make('verDetalle')
                     ->label('Ver')
                     ->icon('heroicon-o-eye')
@@ -90,6 +86,14 @@ class FarmResource extends Resource
                     ->modalContent(function (Farm $record) {
                         return view('filament.farms.modal-details', ['record' => $record]);
                     }),
+                Tables\Actions\EditAction::make()
+                ->modalHeading(fn ($record) => "Editar finca: {$record->name}")
+                ->mutateFormDataUsing(function (array $data): array {
+                    $data['user_update'] = auth()->id();
+            
+                    return $data;
+                })
+                ->modalWidth('7xl'),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

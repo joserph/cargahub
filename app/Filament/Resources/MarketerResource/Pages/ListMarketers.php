@@ -1,21 +1,20 @@
 <?php
 
-namespace App\Filament\Resources\FarmResource\Pages;
+namespace App\Filament\Resources\MarketerResource\Pages;
 
-use App\Filament\Resources\FarmResource;
+use App\Filament\Resources\MarketerResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 
-
-class ListFarms extends ListRecords
+class ListMarketers extends ListRecords
 {
-    protected static string $resource = FarmResource::class;
+    protected static string $resource = MarketerResource::class;
 
     protected function getHeaderActions(): array
     {
         return [
             Actions\CreateAction::make()
-                ->modalHeading('Crear nueva finca')
+            ->modalHeading('Crear nueva comercializadora')
                 ->modalWidth('7xl')
                 ->mutateFormDataUsing(function (array $data): array {
                     $data['user_id'] = auth()->id();
@@ -31,5 +30,4 @@ class ListFarms extends ListRecords
     {
         return [];
     }
-    
 }
