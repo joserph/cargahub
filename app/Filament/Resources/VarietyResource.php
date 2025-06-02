@@ -5,6 +5,10 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\VarietyResource\Pages;
 use App\Filament\Resources\VarietyResource\RelationManagers;
 use App\Models\Variety;
+use Filament\Infolists\Components\IconEntry;
+use Filament\Infolists\Components\Section;
+use Filament\Infolists\Components\TextEntry;
+use Filament\Infolists\Infolist;
 use Filament\Pages\Actions\CreateAction;
 use Filament\Forms;
 use Filament\Forms\Components\Hidden;
@@ -111,6 +115,20 @@ class VarietyResource extends Resource
             'index' => Pages\ListVarieties::route('/'),
             // 'create' => Pages\CreateVariety::route('/create'),
             //'edit' => Pages\EditVariety::route('/{record}/edit'),
+            'view' => Pages\ViewVariety::route('/{record}/view'),
         ];
+    }
+
+    public static function infolist(Infolist $infolist): Infolist
+    {
+        return $infolist
+            ->schema([
+                Section::make('Detalles de la variedad')
+                    ->schema([
+                        TextEntry::make('name')->label('Nombre'),
+                        TextEntry::make('scientific_name')->label('Nombre Científico'),
+                    ])
+                    ->columns(3),
+            ]);
     }
 }

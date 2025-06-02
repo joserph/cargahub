@@ -22,7 +22,7 @@ class Variety extends Model
     }
 
     public function farms()
-{
-    return $this->belongsToMany(Farm::class);
-}
+    {
+        return $this->belongsToMany(Farm::class);
+    }
 }

@@ -8,6 +8,10 @@ use App\Models\Marketer;
 use App\Services\MarketerForm;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Infolists\Components\IconEntry;
+use Filament\Infolists\Components\Section;
+use Filament\Infolists\Components\TextEntry;
+use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Actions\Action;
@@ -102,6 +106,7 @@ class MarketerResource extends Resource
             'index' => Pages\ListMarketers::route('/'),
             // 'create' => Pages\CreateMarketer::route('/create'),
             // 'edit' => Pages\EditMarketer::route('/{record}/edit'),
+            'view' => Pages\ViewMarketer::route('/{record}/view'),
         ];
     }
 
@@ -110,6 +115,31 @@ class MarketerResource extends Resource
         return parent::getEloquentQuery()
             ->withoutGlobalScopes([
                 SoftDeletingScope::class,
+            ]);
+    }
+
+    public static function infolist(Infolist $infolist): Infolist
+    {
+        return $infolist
+            ->schema([
+                Section::make('Detalles de la comercializadora')
+                    ->schema([
+                        TextEntry::make('name')->label('Nombre'),
+                        TextEntry::make('tradename')->label('Nombre Comercial'),
+                        TextEntry::make('phones.phone')->label('Telefonos'),
+                        TextEntry::make('emails.email')->label('Correos')->icon('heroicon-m-envelope'),
+                        TextEntry::make('staffs.staff')->label('Personal')->icon('heroicon-m-user-group'),
+                        IconEntry::make('status')
+                        ->label('Estatus')
+                        ->icon(fn (string $state): string => match ($state) {
+                            '1' => 'heroicon-o-check-circle',
+                            '0' => 'heroicon-o-x-circle',
+                        })->color(fn (string $state): string => match ($state) {
+                            '1' => 'success',
+                            '0' => 'danger',
+                        }),
+                    ])
+                    ->columns(3),
             ]);
     }
 }

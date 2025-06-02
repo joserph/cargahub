@@ -32,4 +32,9 @@ class Marketer extends Model
     {
         return $this->hasMany(MarketerStaff::class);
     }
+
+    public function clients()
+    {
+        return $this->belongsToMany(Client::class);
+    }
 }
