@@ -8,6 +8,10 @@ use App\Models\Client;
 use App\Services\ClientForm;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Infolists\Components\IconEntry;
+use Filament\Infolists\Components\Section;
+use Filament\Infolists\Components\TextEntry;
+use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Actions\Action;
@@ -45,7 +49,7 @@ class ClientResource extends Resource
                 ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('emails.email')->label('Correo')->icon('heroicon-m-envelope')->sortable()
                 ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('poa')->label('POA')->sortable()
+                IconColumn::make('poa')->label('POA')->boolean()->sortable()
                 ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('state.name')->label('Estado')->sortable()
                 ->toggleable(isToggledHiddenByDefault: true),
@@ -116,6 +120,50 @@ class ClientResource extends Resource
         return parent::getEloquentQuery()
             ->withoutGlobalScopes([
                 SoftDeletingScope::class,
+            ]);
+    }
+
+    public static function infolist(Infolist $infolist): Infolist
+    {
+        return $infolist
+            ->schema([
+                Section::make('Detalles de la finca')
+                    ->schema([
+                        TextEntry::make('name')->label('Nombre'),
+                        TextEntry::make('type_load')->label('Tipo de Carga')->badge(),
+                        TextEntry::make('marketers.name')->label('Comercializadoras'),
+                        TextEntry::make('phones.phone')->label('Telefonos'),
+                        TextEntry::make('emails.email')->label('Correos')->icon('heroicon-m-envelope'),
+                        TextEntry::make('owners.owner')->label('Propietarios'),
+                        IconEntry::make('poa')
+                        ->label('POA')
+                        ->icon(fn (string $state): string => match ($state) {
+                            '1' => 'heroicon-o-check-circle',
+                            '0' => 'heroicon-o-x-circle',
+                        })->color(fn (string $state): string => match ($state) {
+                            '1' => 'success',
+                            '0' => 'danger',
+                        }),
+                        IconEntry::make('status')
+                        ->label('Estatus')
+                        ->icon(fn (string $state): string => match ($state) {
+                            '1' => 'heroicon-o-check-circle',
+                            '0' => 'heroicon-o-x-circle',
+                        })->color(fn (string $state): string => match ($state) {
+                            '1' => 'success',
+                            '0' => 'danger',
+                        }),
+                    ])
+                    ->columns(3),
+                Section::make('Dirección')
+                    ->schema([
+                        TextEntry::make('country.name')->label('País'),
+                        TextEntry::make('state.name')->label('Estado'),
+                        TextEntry::make('city.name')->label('Ciudad'),
+                        TextEntry::make('address')->label('Dirección'),
+                        TextEntry::make('zip_code')->label('ZIP CODE'),
+                    ])
+                    ->columns(4),
             ]);
     }
 }
