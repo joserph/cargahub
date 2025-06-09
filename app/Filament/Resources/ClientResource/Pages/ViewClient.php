@@ -10,10 +10,10 @@ class ViewClient extends ViewRecord
 {
     protected static string $resource = ClientResource::class;
 
-    protected function getHeaderActions(): array
-    {
-        return [
-            Actions\EditAction::make(),
-        ];
-    }
+    // protected function getHeaderActions(): array
+    // {
+    //     return [
+    //         Actions\EditAction::make(),
+    //     ];
+    // }
 }

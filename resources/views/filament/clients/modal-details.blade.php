@@ -1,8 +1,13 @@
 <div class="space-y-2">
     <div><strong>Nombre:</strong> {{ $record->name }}</div>
-    <div><strong>Comercializadoras:</strong> {{ $record->marketers['name'] }}</div>
-    <div><strong>Nombre Comercial:</strong> {{ $record->tradename }}</div>
-    <div><strong>Dirección:</strong> {{ $record->address }} {{ $record->state }}, {{ $record->city->name }} - {{ $record->country->name }}</div>
+    <div><strong>Comercializadoras:</strong>
+        @forelse ($record->marketers as $marketer)
+        <li>{{ $marketer->name }}</li>
+        @empty
+            <li>No hay comercializadoras asociados.</li>
+        @endforelse
+        {{-- {{ $record->marketers[0]->name }}</div> --}}
+    <div><strong>Dirección:</strong> {{ $record->address }} {{ $record->state->name }}, {{ $record->city->name }} - {{ $record->country->name }}</div>
     <div><strong>Teléfonos:</strong></div>
     <ul class="list-disc list-inside">
     @forelse ($record->phones as $phone)
