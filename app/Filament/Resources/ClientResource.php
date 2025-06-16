@@ -127,7 +127,7 @@ class ClientResource extends Resource
     {
         return $infolist
             ->schema([
-                Section::make('Detalles de la finca')
+                Section::make('Detalles del cliente')
                     ->schema([
                         TextEntry::make('name')->label('Nombre'),
                         TextEntry::make('type_load')->label('Tipo de Carga')->badge(),

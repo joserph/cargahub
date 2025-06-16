@@ -1,5 +1,6 @@
 <div class="space-y-2">
     <div><strong>Nombre:</strong> {{ $record->name }}</div>
+    <div><strong>Tipo de Carga:</strong> {{ $record->type_load }}</div>
     <div><strong>Comercializadoras:</strong>
         @forelse ($record->marketers as $marketer)
         <li>{{ $marketer->name }}</li>
@@ -24,13 +25,14 @@
         <li>No hay emails asociados.</li>
     @endforelse
     </ul>
-    <div><strong>Sitio Web:</strong>
-    @if ($record->web)
-        {{ $record->web }}
-    @else
-        No posee sitio web
-    @endif
-    </div>
+    <div><strong>Propietarios:</strong></div>
+    <ul class="list-disc list-inside">
+    @forelse ($record->owners as $owner)
+       <li> {{ $owner->owner }}</li>
+    @empty
+         <li>No posee sitio web</li>
+    @endforelse
+    </ul>
     {{-- <p>{{ $record->emails->pluck('email')->implode(', ') }}</p> --}}
     <div><strong>Creado el:</strong> {{ $record->created_at->format('d/m/Y H:i') }}</div>
     {{-- Agrega más campos según tu modelo --}}
