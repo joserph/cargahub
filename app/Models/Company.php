@@ -1,0 +1,44 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+class Company extends Model
+{
+    use SoftDeletes;
+
+    protected $fillable = [
+        'name',
+        'web',
+        'phone',
+        'email',
+        'address',
+        'zip_code',
+        'country_id',
+        'state_id',
+        'city_id',
+        'user_id',
+        'user_update',
+        'legal_name',
+        'legal_address',
+        'contact_email',
+        'contact_phone'
+    ];
+
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
+    }
+
+    public function state()
+    {
+        return $this->belongsTo(State::class);
+    }
+
+    public function city()
+    {
+        return $this->belongsTo(City::class);
+    }
+}
