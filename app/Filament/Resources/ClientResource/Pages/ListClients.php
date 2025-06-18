@@ -14,7 +14,7 @@ class ListClients extends ListRecords
     {
         return [
             Actions\CreateAction::make()
-            ->modalHeading('Crear nuevo cliente')
+                ->modalHeading('Crear nuevo cliente')
                 ->modalWidth('7xl')
                 ->mutateFormDataUsing(function (array $data): array {
                     $data['user_id'] = auth()->id();

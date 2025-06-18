@@ -8,8 +8,12 @@ use App\Models\Company;
 use App\Services\CompanyForm;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Infolists\Components\Section;
+use Filament\Infolists\Components\TextEntry;
+use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\Action;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
@@ -20,6 +24,9 @@ class CompanyResource extends Resource
     protected static ?string $model = Company::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $modelLabel = 'Empresa';
+    protected static ?string $pluralLabel = 'Empresa';
+
 
     public static function form(Form $form): Form
     {
@@ -61,8 +68,24 @@ class CompanyResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
+                // Tables\Actions\ViewAction::make(),
+                Action::make('verDetalle')
+                    ->label('Ver')
+                    ->icon('heroicon-o-eye')
+                    ->action(fn (Company $record, array $data) => null) // no necesitas lógica aquí
+                    ->modalHeading('Detalles la empresa')
+                    ->modalSubmitAction(false)
+                    ->modalCancelActionLabel('Cerrar')
+                    ->modalContent(function (Company $record) {
+                        return view('filament.company.modal-details', ['record' => $record]);
+                    }),
+                Tables\Actions\EditAction::make()
+                ->modalHeading(fn ($record) => "Editar empresa: {$record->name}")
+                ->mutateFormDataUsing(function (array $data): array {
+                    $data['user_update'] = auth()->id();
+            
+                    return $data;
+                })->modalWidth('7xl'),
             ])
             ->bulkActions([
                 
@@ -90,9 +113,9 @@ class CompanyResource extends Resource
     {
         return [
             'index' => Pages\ListCompanies::route('/'),
-            'create' => Pages\CreateCompany::route('/create'),
+            // 'create' => Pages\CreateCompany::route('/create'),
             'view' => Pages\ViewCompany::route('/{record}'),
-            'edit' => Pages\EditCompany::route('/{record}/edit'),
+            // 'edit' => Pages\EditCompany::route('/{record}/edit'),
         ];
     }
 
@@ -101,6 +124,42 @@ class CompanyResource extends Resource
         return parent::getEloquentQuery()
             ->withoutGlobalScopes([
                 SoftDeletingScope::class,
+            ]);
+    }
+
+    public static function infolist(Infolist $infolist): Infolist
+    {
+        return $infolist
+            ->schema([
+                Section::make('Detalles del cliente')
+                    ->schema([
+                        TextEntry::make('name')->label('Nombre'),
+                        TextEntry::make('email')->label('Correo'),
+                        TextEntry::make('phone')->label('Telefono'),
+                        TextEntry::make('web')->label('Sitio web'),
+                    ])
+                    ->columns(3),
+                Section::make('Dirección')
+                    ->schema([
+                        TextEntry::make('country.name')->label('País'),
+                        TextEntry::make('state.name')->label('Estado'),
+                        TextEntry::make('city.name')->label('Ciudad'),
+                        TextEntry::make('address')->label('Dirección'),
+                        TextEntry::make('zip_code')->label('ZIP CODE'),
+                    ])
+                    ->columns(4),
+                Section::make('Información legal')
+                    ->schema([
+                        TextEntry::make('legal_name')->label('Nombre legal'),
+                        TextEntry::make('legal_address')->label('Direccion legal'),
+                    ])
+                    ->columns(2),
+                Section::make('Información de contacto')
+                    ->schema([
+                        TextEntry::make('contact_email')->label('Correo de contacto'),
+                        TextEntry::make('contact_phone')->label('Telefono de contacto'),
+                    ])
+                    ->columns(2),
             ]);
     }
 }
