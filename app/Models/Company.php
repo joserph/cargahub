@@ -24,7 +24,8 @@ class Company extends Model
         'legal_name',
         'legal_address',
         'contact_email',
-        'contact_phone'
+        'contact_phone',
+        'logo'
     ];
 
     public function country()

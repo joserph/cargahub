@@ -30,6 +30,7 @@ return new class extends Migration
             $table->string('legal_address')->nullable();
             $table->string('contact_email')->nullable();
             $table->string('contact_phone')->nullable();
+            $table->string('logo')->nullable();
 
             $table->softDeletes();
 

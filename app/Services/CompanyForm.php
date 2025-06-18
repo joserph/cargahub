@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\City;
 use App\Models\State;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Section;
@@ -44,7 +45,13 @@ final class CompanyForm
                                 ->columnSpan(['default' => 1, 'sm' => 4, 'md' => 2, 'lg' => 2, 'xl' => 2]),
                             TextInput::make('web')
                                 ->label('Sitio Web')
-                                ->columnSpan(['default' => 1, 'sm' => 4, 'md' => 2, 'lg' => 2, 'xl' => 2])
+                                ->columnSpan(['default' => 1, 'sm' => 4, 'md' => 2, 'lg' => 2, 'xl' => 2]),
+                            FileUpload::make('logo') // o el nombre del campo que desees
+                                ->image() // Asegura que solo permita imágenes
+                                ->directory('company-logos') // Carpeta en la que se guardará
+                                ->imageEditor() // (opcional) activa el editor de imágenes
+                                ->imagePreviewHeight('200') // (opcional)
+                                ->required(),
                         ])
                         ->columns(['default' => 1, 'sm' => 3, 'md' => 3, 'lg' => 4, 'xl' => 4,]),
                 ]),

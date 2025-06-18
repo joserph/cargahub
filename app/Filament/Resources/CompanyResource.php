@@ -8,12 +8,14 @@ use App\Models\Company;
 use App\Services\CompanyForm;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\Section;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Actions\Action;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
@@ -23,7 +25,7 @@ class CompanyResource extends Resource
 {
     protected static ?string $model = Company::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-building-office';
     protected static ?string $modelLabel = 'Empresa';
     protected static ?string $pluralLabel = 'Empresa';
 
@@ -38,6 +40,7 @@ class CompanyResource extends Resource
     {
         return $table
             ->columns([
+                ImageColumn::make('logo')->circular()->disk('public')->height(40),
                 TextColumn::make('name')->label('Nombre')->searchable(),
                 TextColumn::make('email')->label('Correo')->searchable(),
                 TextColumn::make('phone')->label('Teléfono')->searchable(),
@@ -137,6 +140,7 @@ class CompanyResource extends Resource
                         TextEntry::make('email')->label('Correo'),
                         TextEntry::make('phone')->label('Telefono'),
                         TextEntry::make('web')->label('Sitio web'),
+                        ImageEntry::make('logo')->label('Logo')
                     ])
                     ->columns(3),
                 Section::make('Dirección')
