@@ -3,7 +3,9 @@
 namespace App\Services;
 
 use App\Models\City;
+use App\Models\Logistic;
 use App\Models\State;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Section;
@@ -13,15 +15,11 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Get;
 use Filament\Forms\Set;
+use Filament\Notifications\Notification;
 use Illuminate\Support\Collection;
 
-final class ClientForm
+final class LogisticForm
 {
-
-    protected static array $typeLoad = [
-        'AEREO'     => 'AÉREO',
-        'MARITIMO'  => 'MARÍTIMO',
-    ];
     public static function schema(): array
     {
         return [
@@ -34,26 +32,40 @@ final class ClientForm
                             TextInput::make('name')
                                 ->autofocus()
                                 ->dehydrateStateUsing(fn ($state) => strtoupper($state))
-                                ->label('Nombre del cliente')
+                                ->label('Nombre de la empresa')
                                 ->unique(ignoreRecord: true)
                                 ->columnSpan(['default' => 1, 'sm' => 4, 'md' => 2, 'lg' => 2, 'xl' => 2])
                                 ->required(),
-                            Select::make('marketers')
-                                ->relationship('marketers', 'name')
-                                ->label('Comercializadoras')
-                                ->searchable()
-                                ->preload()
-                                ->columnSpan(['default' => 1, 'sm' => 4, 'md' => 1, 'lg' => 2, 'xl' => 2])
-                                ->multiple(),
-                            Select::make('type_load')
-                                ->label('Tipo de Carga')
-                                ->options(self::$typeLoad)
-                                ->required(),
+                            TextInput::make('ruc')
+                                ->label('RUC')
+                                ->columnSpan(['default' => 1, 'sm' => 4, 'md' => 2, 'lg' => 2, 'xl' => 2]),
+                            TextInput::make('web')
+                                ->label('Sitio Web')
+                                ->columnSpan(['default' => 1, 'sm' => 4, 'md' => 2, 'lg' => 2, 'xl' => 2]),
                             Toggle::make('status')
-                                ->label('Estatus')
-                                ->required(),
-                            Toggle::make('poa')
-                                ->label('POA')
+                                ->label('¿Empresa activa?')
+                                ->reactive()
+                                ->afterStateUpdated(function ($state, callable $set) {
+                                    if ($state) {
+                                        // Solo permitir si no hay otra activa
+                                        $activeExists = Logistic::where('status', true)->exists();
+
+                                        if ($activeExists) {
+                                            // Mostrar error y apagar el toggle
+                                            Notification::make()
+                                                ->title('Solo puede haber una empresa activa.')
+                                                ->danger()
+                                                ->send();
+
+                                            $set('status', false);
+                                        }
+                                    }
+                                }),
+                            FileUpload::make('logo') // o el nombre del campo que desees
+                                ->image() // Asegura que solo permita imágenes
+                                ->directory('company-logos') // Carpeta en la que se guardará
+                                ->imageEditor() // (opcional) activa el editor de imágenes
+                                ->imagePreviewHeight('200') // (opcional)
                                 ->required(),
                         ])
                         ->columns(['default' => 1, 'sm' => 3, 'md' => 3, 'lg' => 4, 'xl' => 4,]),
@@ -96,11 +108,7 @@ final class ClientForm
                             ->columnSpan(['default' => 1, 'sm' => 2, 'md' => 2, 'lg' => 2, 'xl' => 2])
                             ->dehydrateStateUsing(fn ($state) => ucwords($state))
                             ->required(),
-                        TextInput::make('zip_code')
-                            ->label('Zip Code')
-                            ->required(),
-                        ])
-                        ->columns(['default' => 1, 'sm' => 3, 'md' => 3, 'lg' => 3, 'xl' => 3,]),
+                        ])->columns(['default' => 1, 'sm' => 3, 'md' => 3, 'lg' => 3, 'xl' => 3,]),
                     ]),
                 Section::make('Teléfonos y Emails')
                 ->schema([
@@ -114,7 +122,7 @@ final class ClientForm
                                     ->numeric()
                                     ->label('Telefono')
                                     ->required(),
-                                TextInput::make('client_id')
+                                TextInput::make('logistic_id')
                                     ->hidden()
                                     ->required(),
                             ])->addActionLabel('Agregar otro Teléfono')
@@ -126,38 +134,12 @@ final class ClientForm
                                 TextInput::make('email')
                                     ->email()
                                     ->label('Email'),
-                                TextInput::make('client_id')
+                                TextInput::make('logistic_id')
                                     ->hidden()
                             ])->addActionLabel('Agregar otro Email')
                             ->reorderable(true),
                         ])->columns(['default' => 1, 'sm' => 2, 'md' => 2, 'lg' => 2, 'xl' => 2])
                 ])->columnSpan(['default' => 1, 'sm' => 3, 'md' => 3, 'lg' => 2, 'xl' => 2]),
-                Section::make('Información de los propietarios')
-                ->schema([
-                    Grid::make()
-                    ->schema([
-                        Repeater::make('owners')
-                        ->label('Nombre y Teléfono')
-                        ->relationship('owners')
-                        ->schema([
-                            Grid::make([
-                                'default' => 1, // Una columna por defecto (pantallas pequeñas)
-                                'md' => 2,      // Dos columnas en pantallas medianas o más grandes
-                                'sm' => 2
-                            ])
-                            ->schema([
-                                TextInput::make('owner')
-                                    ->label('Nombre del propietario'),
-                                TextInput::make('phone')
-                                    ->label('Teléfono'),
-                                TextInput::make('client_id')
-                                    ->hidden(), // Sigue oculto
-                            ]),
-                        ])
-                        ->addActionLabel('Agregar otro Propietario')
-                        ->reorderable(true),
-                    ])->columns(['default' => 1, 'sm' => 1, 'md' => 1, 'lg' => 1, 'xl' => 1])
-                ])->columnSpan(['default' => 1, 'sm' => 3, 'md' => 3, 'lg' => 2, 'xl' => 2])
             ])->columns(['default' => 1, 'sm' => 4, 'md' => 4, 'lg' => 4, 'xl' => 4,]),
         ];
     }
