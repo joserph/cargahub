@@ -106,7 +106,7 @@ final class LogisticForm
                         TextInput::make('address')
                             ->label('Dirección')
                             ->columnSpan(['default' => 1, 'sm' => 2, 'md' => 2, 'lg' => 2, 'xl' => 2])
-                            ->dehydrateStateUsing(fn ($state) => ucwords($state))
+                            ->dehydrateStateUsing(fn ($state) => ucwords(strtolower($state)))
                             ->required(),
                         ])->columns(['default' => 1, 'sm' => 3, 'md' => 3, 'lg' => 3, 'xl' => 3,]),
                     ]),

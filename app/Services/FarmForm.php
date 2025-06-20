@@ -91,7 +91,7 @@ final class FarmForm
                     ->required(),
                 TextInput::make('address')
                     ->label('Dirección')
-                    ->dehydrateStateUsing(fn ($state) => ucwords($state))
+                    ->dehydrateStateUsing(fn ($state) => ucwords(strtolower($state)))
                     ->columnSpanFull()
                     ->required(),
                 ]),

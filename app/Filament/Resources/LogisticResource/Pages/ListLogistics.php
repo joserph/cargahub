@@ -13,7 +13,21 @@ class ListLogistics extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            Actions\CreateAction::make()
+                ->modalHeading('Crear nueva empresa de logistica')
+                ->modalWidth('7xl')
+                ->mutateFormDataUsing(function (array $data): array {
+                    $data['user_id'] = auth()->id();
+                    $data['user_update'] = auth()->id();
+
+                    return $data;
+                }) // Personaliza si quieres
+                //->slideOver(),
         ];
+    }
+
+    public function getBreadcrumbs(): array
+    {
+        return [];
     }
 }
