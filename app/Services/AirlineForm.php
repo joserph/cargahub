@@ -30,10 +30,14 @@ final class AirlineForm
                             TextInput::make('name')
                                 ->autofocus()
                                 ->dehydrateStateUsing(fn ($state) => strtoupper($state))
-                                ->label('Nombre de la empresa')
+                                ->label('Nombre de la aerolinea')
                                 ->unique(ignoreRecord: true)
                                 ->columnSpan(['default' => 1, 'sm' => 4, 'md' => 2, 'lg' => 2, 'xl' => 2])
                                 ->required(),
+                            TextInput::make('ruc')
+                                ->required()
+                                ->label('RUC')
+                                ->columnSpan(['default' => 1, 'sm' => 4, 'md' => 2, 'lg' => 2, 'xl' => 2]),
                             TextInput::make('email')
                                 ->email()
                                 ->required()
@@ -51,7 +55,6 @@ final class AirlineForm
                                 ->directory('company-logos') // Carpeta en la que se guardará
                                 ->imageEditor() // (opcional) activa el editor de imágenes
                                 ->imagePreviewHeight('200') // (opcional)
-                                ->required(),
                         ])
                         ->columns(['default' => 1, 'sm' => 3, 'md' => 3, 'lg' => 4, 'xl' => 4,]),
                 ]),
@@ -92,9 +95,6 @@ final class AirlineForm
                             ->label('Dirección')
                             ->columnSpan(['default' => 1, 'sm' => 2, 'md' => 2, 'lg' => 2, 'xl' => 2])
                             ->dehydrateStateUsing(fn ($state) => ucwords(strtolower($state)))
-                            ->required(),
-                        TextInput::make('zip_code')
-                            ->label('Zip Code')
                             ->required(),
                         ])->columns(['default' => 1, 'sm' => 3, 'md' => 3, 'lg' => 3, 'xl' => 3,]),
                     ]),
