@@ -76,7 +76,7 @@ class CompanyResource extends Resource
                     ->label('Ver')
                     ->icon('heroicon-o-eye')
                     ->action(fn (Company $record, array $data) => null) // no necesitas lógica aquí
-                    ->modalHeading('Detalles la empresa')
+                    ->modalHeading('Detalles de la empresa')
                     ->modalSubmitAction(false)
                     ->modalCancelActionLabel('Cerrar')
                     ->modalContent(function (Company $record) {
