@@ -17,7 +17,10 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Get;
 use Filament\Forms\Set;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
+use Filament\Forms;
 
 final class MaritimeForm
 {
@@ -68,8 +71,46 @@ final class MaritimeForm
                 ->schema([
                     Grid::make()
                     ->schema([
-                        
-                        ])->columns(['default' => 1, 'sm' => 3, 'md' => 3, 'lg' => 3, 'xl' => 3,]),
+                        Select::make('driver_id')
+                            ->relationship('driver', modifyQueryUsing: fn (Builder $query) => $query->orderBy('name')->orderBy('last_name'),)
+                            ->getOptionLabelFromRecordUsing(fn (Model $record) => "{$record->name} {$record->last_name}")
+                            ->searchable(['name', 'last_name'])
+                            ->label('Chofer')
+                            ->preload()
+                            ->columnSpan(['default' => 1, 'sm' => 1, 'md' => 1, 'lg' => 1, 'xl' => 1]),
+                        TextInput::make('plate')
+                            ->label('Placa')
+                            ->columnSpan(['default' => 1, 'sm' => 1, 'md' => 1, 'lg' => 1, 'xl' => 1]),
+                        TextInput::make('container_number')
+                            ->label('Número del contenedor')
+                            ->columnSpan(['default' => 1, 'sm' => 1, 'md' => 1, 'lg' => 1, 'xl' => 1]),
+                        TextInput::make('seal_bottle')
+                            ->label('Sello botella')
+                            ->columnSpan(['default' => 1, 'sm' => 1, 'md' => 1, 'lg' => 1, 'xl' => 1]),
+                        TextInput::make('seal_cable')
+                            ->label('Sello cable')
+                            ->columnSpan(['default' => 1, 'sm' => 1, 'md' => 1, 'lg' => 1, 'xl' => 1]),
+                        TextInput::make('seal_sticker')
+                            ->label('Sello sticker')
+                            ->columnSpan(['default' => 1, 'sm' => 1, 'md' => 1, 'lg' => 1, 'xl' => 1]),
+                        Toggle::make('floor')
+                            ->columnSpan(['sm' => 2, 'md' => 1, 'lg' => 1, 'xl' => 1])
+                            ->reactive()
+                            ->label('Paletas al piso ¿Si o No?'),
+                        TextInput::make('num_pallets')
+                            ->numeric()
+                            ->label('Número de paletas al piso')
+                            ->visible(fn (Forms\Get $get) => $get('floor'))
+                            ->columnSpan(['default' => 1, 'sm' =>1, 'md' => 1, 'lg' => 1, 'xl' => 1]),
+                        ])->columns(['default' => 1, 'sm' => 4, 'md' => 4, 'lg' => 4, 'xl' => 4,]),
+                    ]),
+
+                Section::make('Info de los termógrafos')
+                ->schema([
+                    Grid::make()
+                    ->schema([
+
+                        ])->columns(['default' => 1, 'sm' => 4, 'md' => 4, 'lg' => 4, 'xl' => 4,]),
                     ]),
             ])->columns(['default' => 1, 'sm' => 4, 'md' => 4, 'lg' => 4, 'xl' => 4,]),
         ];

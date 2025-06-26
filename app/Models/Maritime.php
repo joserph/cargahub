@@ -34,4 +34,9 @@ class Maritime extends Model
     {
         return $this->belongsTo(Logistic::class);
     }
+
+    public function driver(): BelongsTo
+    {
+        return $this->belongsTo(Driver::class);
+    }
 }
