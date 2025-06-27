@@ -36,36 +36,38 @@ final class MaritimeForm
                             TextInput::make('shipment')
                                 ->autofocus()
                                 ->label('Carga')
-                                ->columnSpan(['default' => 1, 'sm' => 4, 'md' => 1, 'lg' => 1, 'xl' => 1])
+                                ->columnSpan(['default' => 1, 'sm' => 1, 'md' => 1, 'lg' => 1, 'xl' => 1])
                                 ->required(),
                             TextInput::make('bl')
+                                ->prefix('BL')
+                                ->dehydrateStateUsing(fn ($state) => 'BL ' . $state)
                                 ->required()
-                                ->columnSpan(['default' => 1, 'sm' => 4, 'md' => 3, 'lg' => 3, 'xl' => 3])
+                                ->columnSpan(['default' => 1, 'sm' => 1, 'md' => 3, 'lg' => 3, 'xl' => 3])
                                 ->label('BL'),
                             TextInput::make('booking')
                                 ->required()
                                 ->label('Booking')
-                                ->columnSpan(['default' => 1, 'sm' => 4, 'md' => 2, 'lg' => 2, 'xl' => 2]),
+                                ->columnSpan(['default' => 1, 'sm' => 1, 'md' => 2, 'lg' => 2, 'xl' => 2]),
                             TextInput::make('carrier')
                                 ->required()
                                 ->label('Transportista')
-                                ->columnSpan(['default' => 1, 'sm' => 4, 'md' => 2, 'lg' => 2, 'xl' => 2]),
+                                ->columnSpan(['default' => 1, 'sm' => 1, 'md' => 2, 'lg' => 2, 'xl' => 2]),
                             Select::make('logistic_id')
                                 ->relationship('logistic', 'name')
                                 ->required()
                                 ->label('Carguera')
                                 ->searchable()
                                 ->preload()
-                                ->columnSpan(['default' => 1, 'sm' => 4, 'md' => 4, 'lg' => 4, 'xl' => 4]),
+                                ->columnSpan(['default' => 1, 'sm' => 2, 'md' => 4, 'lg' => 4, 'xl' => 4]),
                             DatePicker::make('date')
                                 ->required()
                                 ->label('Fecha Salida')
-                                ->columnSpan(['default' => 1, 'sm' => 4, 'md' => 2, 'lg' => 2, 'xl' => 2]),
+                                ->columnSpan(['default' => 1, 'sm' => 1, 'md' => 2, 'lg' => 2, 'xl' => 2]),
                             DatePicker::make('arrival_date')
                                 ->required()
                                 ->label('Fecha llegada')
-                                ->columnSpan(['default' => 1, 'sm' => 4, 'md' => 2, 'lg' => 2, 'xl' => 2]),
-                        ])->columns(['default' => 1, 'sm' => 3, 'md' => 8, 'lg' => 8, 'xl' => 8,]),
+                                ->columnSpan(['default' => 1, 'sm' => 1, 'md' => 2, 'lg' => 2, 'xl' => 2]),
+                        ])->columns(['default' => 1, 'sm' => 2, 'md' => 8, 'lg' => 8, 'xl' => 8,]),
                 ]),
                 Section::make('Info de contenedor físico')
                 ->schema([
@@ -102,15 +104,36 @@ final class MaritimeForm
                             ->label('Número de paletas al piso')
                             ->visible(fn (Forms\Get $get) => $get('floor'))
                             ->columnSpan(['default' => 1, 'sm' =>1, 'md' => 1, 'lg' => 1, 'xl' => 1]),
-                        ])->columns(['default' => 1, 'sm' => 4, 'md' => 4, 'lg' => 4, 'xl' => 4,]),
+                        ])->columns(['default' => 1, 'sm' => 2, 'md' => 3, 'lg' => 4, 'xl' => 4,]),
                     ]),
 
                 Section::make('Info de los termógrafos')
                 ->schema([
                     Grid::make()
                     ->schema([
+                        Repeater::make('thermographs')
+                            ->label('Termógrafos')
+                            ->relationship('thermographs')
+                            ->schema([
+                                TextInput::make('code')
+                                    ->columns(['default' => 1, 'sm' => 1, 'md' => 1, 'lg' => 1, 'xl' => 1,])
+                                    ->label('Código'),
+                                Select::make('place')
+                                    ->columns(['default' => 1, 'sm' => 1, 'md' => 1, 'lg' => 1, 'xl' => 1,])
+                                    ->label('Lugar')
+                                    ->options([
+                                        'fondo' => 'Fondo',
+                                        'medio' => 'Medio',
+                                        'puerta' => 'Puerta',
+                                    ]),
+                                TextInput::make('brand')
+                                    ->columns(['default' => 1, 'sm' => 1, 'md' => 1, 'lg' => 1, 'xl' => 1,])
+                                    ->label('Marca'),
+                                TextInput::make('maritime_id')
+                                    ->hidden(), // Sigue oculto
+                            ])->columns(['default' => 1, 'sm' => 3, 'md' => 3, 'lg' => 3, 'xl' => 3,]),
 
-                        ])->columns(['default' => 1, 'sm' => 4, 'md' => 4, 'lg' => 4, 'xl' => 4,]),
+                        ])->columns(['default' => 1, 'sm' => 1, 'md' => 1, 'lg' => 1, 'xl' => 1,]),
                     ]),
             ])->columns(['default' => 1, 'sm' => 4, 'md' => 4, 'lg' => 4, 'xl' => 4,]),
         ];

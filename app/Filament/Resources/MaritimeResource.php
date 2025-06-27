@@ -10,6 +10,7 @@ use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -30,7 +31,15 @@ class MaritimeResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('shipment')->label('N°')->searchable(),
+                TextColumn::make('date')->year()->label('Año')->searchable(),
+                
+                TextColumn::make('created_at')->dateTime()->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                TextColumn::make('updated_at')->dateTime()->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                TextColumn::make('deleted_at')->dateTime()->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
@@ -59,9 +68,9 @@ class MaritimeResource extends Resource
     {
         return [
             'index' => Pages\ListMaritimes::route('/'),
-            'create' => Pages\CreateMaritime::route('/create'),
+            // 'create' => Pages\CreateMaritime::route('/create'),
             'view' => Pages\ViewMaritime::route('/{record}'),
-            'edit' => Pages\EditMaritime::route('/{record}/edit'),
+            // 'edit' => Pages\EditMaritime::route('/{record}/edit'),
         ];
     }
 

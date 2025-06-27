@@ -13,7 +13,16 @@ class ListMaritimes extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            Actions\CreateAction::make()
+                ->modalHeading('Crear marítimo')
+                ->modalWidth('7xl')
+                ->mutateFormDataUsing(function (array $data): array {
+                    $data['user_id'] = auth()->id();
+                    $data['user_update'] = auth()->id();
+
+                    return $data;
+                }) // Personaliza si quieres
+                //->slideOver(),
         ];
     }
 }
