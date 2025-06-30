@@ -14,6 +14,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Carbon;
 
 class MaritimeResource extends Resource
 {
@@ -32,8 +33,21 @@ class MaritimeResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('shipment')->label('N°')->searchable(),
-                TextColumn::make('date')->year()->label('Año')->searchable(),
-                
+                TextColumn::make('date_year')
+                ->label('Año')
+                ->state(fn ($record) => $record->date ? Carbon::parse($record->date)->format('Y') : null),
+                TextColumn::make('bl')->label('BL')->searchable()->copyable()
+                ->copyMessage('Bl copied')
+                ->copyMessageDuration(1500),
+                TextColumn::make('logistic.name')->label('Agencia')->limit(15)->searchable(),
+                TextColumn::make('date')->dateTime('d-m-Y')->label('Fecha Salida')->searchable(),
+                TextColumn::make('arrival_date')->dateTime('d-m-Y')->label('Fecha Salida')->searchable(),
+                TextColumn::make('thermographs.code')->label('Termografos')->copyable()
+                ->copyMessage('Termografos copied')
+                ->copyMessageDuration(1500),
+                //TextColumn::make('authors.name')->listWithLineBreaks()->limitList(3)->expandableLimitedList(),
+                TextColumn::make('thermographs_background')->label('Termógrafo Fondo')->getStateUsing(fn ($record) => $record->thermographs[0]->code . '-' . $record->thermographs[0]->brand)->badge()->toggleable(isToggledHiddenByDefault: true),
+                TextColumn::make('thermographs_door')->label('Termógrafo Puerta')->getStateUsing(fn ($record) => $record->thermographs[1]->code . '-' . $record->thermographs[1]->brand)->badge()->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('created_at')->dateTime()->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('updated_at')->dateTime()->sortable()
