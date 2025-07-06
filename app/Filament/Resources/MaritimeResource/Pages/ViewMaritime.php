@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\MaritimeResource\Pages;
 
 use App\Filament\Resources\MaritimeResource;
+use App\Filament\Resources\MaritimeResource\Widgets\UserCountCard;
 use Filament\Actions;
 use Filament\Resources\Pages\ViewRecord;
 
@@ -16,4 +17,12 @@ class ViewMaritime extends ViewRecord
             Actions\EditAction::make(),
         ];
     }
+
+    protected function getHeaderWidgets(): array
+    {
+        return [
+            UserCountCard::class,
+        ];
+    }
+    
 }

@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\MaritimeResource\Pages;
 use App\Filament\Resources\MaritimeResource\RelationManagers;
+use App\Filament\Resources\MaritimeResource\Widgets\UserCountCard;
 use App\Models\Maritime;
 use App\Services\MaritimeForm;
 use Filament\Forms;
@@ -94,5 +95,12 @@ class MaritimeResource extends Resource
             ->withoutGlobalScopes([
                 SoftDeletingScope::class,
             ]);
+    }
+
+    public static function getWidgets(): array
+    {
+        return [
+            UserCountCard::class,
+        ];
     }
 }
