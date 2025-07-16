@@ -106,7 +106,32 @@ final class MaritimeForm
                             ->columnSpan(['default' => 1, 'sm' =>1, 'md' => 1, 'lg' => 1, 'xl' => 1]),
                         ])->columns(['default' => 1, 'sm' => 2, 'md' => 3, 'lg' => 4, 'xl' => 4,]),
                     ]),
-
+                Section::make('Configuración cajas')
+                ->schema([
+                    Grid::make()
+                    ->schema([
+                        Toggle::make('fb_status')
+                            ->columnSpan(['sm' => 2, 'md' => 1, 'lg' => 1, 'xl' => 1])
+                            ->label('FB')
+                            ->default(false),
+                        Toggle::make('hb_status')
+                            ->columnSpan(['sm' => 2, 'md' => 1, 'lg' => 1, 'xl' => 1])
+                            ->label('HB')
+                            ->default(true),
+                        Toggle::make('qb_status')
+                            ->columnSpan(['sm' => 2, 'md' => 1, 'lg' => 1, 'xl' => 1])
+                            ->label('QB')
+                            ->default(true),
+                        Toggle::make('eb_status')
+                            ->columnSpan(['sm' => 2, 'md' => 1, 'lg' => 1, 'xl' => 1])
+                            ->label('EB')
+                            ->default(true),
+                        Toggle::make('db_status')
+                            ->columnSpan(['sm' => 2, 'md' => 1, 'lg' => 1, 'xl' => 1])
+                            ->label('DB')
+                            ->default(false)
+                    ])->columns(['default' => 2, 'sm' => 3, 'md' => 4, 'lg' => 5, 'xl' => 5,]),
+                ]),
                 Section::make('Info de los termógrafos')
                 ->schema([
                     Grid::make()
