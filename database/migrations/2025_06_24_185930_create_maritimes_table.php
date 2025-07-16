@@ -31,6 +31,11 @@ return new class extends Migration
             $table->integer('num_pallets')->nullable();
             $table->foreignId('user_id')->nullable()->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('user_update')->nullable()->constrained()->onUpdate('cascade')->onDelete('cascade')->references('id')->on('users');
+            $table->boolean('fb_status')->default(false);
+            $table->boolean('hb_status')->default(true);
+            $table->boolean('qb_status')->default(true);
+            $table->boolean('eb_status')->default(true);
+            $table->boolean('db_status')->default(false);
 
             $table->softDeletes();
 
