@@ -36,6 +36,7 @@ final class DriverForm
                                 ->required(),
                             TextInput::make('last_name')
                                 ->required()
+                                ->dehydrateStateUsing(fn ($state) => strtoupper($state))
                                 ->label('Apellidos')
                                 ->columnSpan(['default' => 1, 'sm' => 4, 'md' => 2, 'lg' => 2, 'xl' => 2]),
                             TextInput::make('id_number')

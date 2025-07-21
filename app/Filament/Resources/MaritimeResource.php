@@ -60,7 +60,13 @@ class MaritimeResource extends Resource
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\EditAction::make()
+                ->modalHeading(fn ($record) => "Editar maritimo: {$record->bl}")
+                ->mutateFormDataUsing(function (array $data): array {
+                    $data['user_update'] = auth()->id();
+            
+                    return $data;
+                })->modalWidth('7xl'),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -76,6 +82,10 @@ class MaritimeResource extends Resource
         return [
             //
         ];
+    }
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
     }
 
     public static function getPages(): array

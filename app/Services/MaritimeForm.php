@@ -40,7 +40,7 @@ final class MaritimeForm
                                 ->required(),
                             TextInput::make('bl')
                                 ->prefix('BL')
-                                ->dehydrateStateUsing(fn ($state) => 'BL ' . $state)
+                                // ->dehydrateStateUsing(fn ($state) => 'BL ' . $state)
                                 ->required()
                                 ->columnSpan(['default' => 1, 'sm' => 1, 'md' => 3, 'lg' => 3, 'xl' => 3])
                                 ->label('BL'),
@@ -58,6 +58,7 @@ final class MaritimeForm
                                 ->label('Carguera')
                                 ->searchable()
                                 ->preload()
+                                ->createOptionForm(LogisticForm::schema())
                                 ->columnSpan(['default' => 1, 'sm' => 2, 'md' => 4, 'lg' => 4, 'xl' => 4]),
                             DatePicker::make('date')
                                 ->required()
@@ -79,6 +80,7 @@ final class MaritimeForm
                             ->searchable(['name', 'last_name'])
                             ->label('Chofer')
                             ->preload()
+                            ->createOptionForm(DriverForm::schema())
                             ->columnSpan(['default' => 1, 'sm' => 1, 'md' => 1, 'lg' => 1, 'xl' => 1]),
                         TextInput::make('plate')
                             ->label('Placa')

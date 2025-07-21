@@ -100,6 +100,11 @@ class CompanyResource extends Resource
         return true; // Oculta la vista de lista
     }
 
+    // public static function getNavigationBadge(): ?string
+    // {
+    //     return static::getModel()::count();
+    // }
+
     public static function canCreate(): bool
     {
         return false; // Evita creación de nuevos registros
