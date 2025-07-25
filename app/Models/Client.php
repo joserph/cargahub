@@ -62,4 +62,9 @@ class Client extends Model
         return $this->hasMany(ClientOwner::class);
     }
 
+    public function subClients()
+    {
+        return $this->hasMany(SubClient::class);
+    }
+
 }
