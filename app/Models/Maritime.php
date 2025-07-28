@@ -45,4 +45,9 @@ class Maritime extends Model
     {
         return $this->hasMany(Thermograph::class);
     }
+
+    public function coordinationMeritimes()
+    {
+        return $this->hasMany(CoordinationMaritime::class);
+    }
 }
