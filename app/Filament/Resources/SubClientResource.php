@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\SubClientResource\Pages;
 use App\Filament\Resources\SubClientResource\RelationManagers;
 use App\Models\SubClient;
+use App\Services\SubClientForm;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -22,9 +23,7 @@ class SubClientResource extends Resource
     public static function form(Form $form): Form
     {
         return $form
-            ->schema([
-                //
-            ]);
+            ->schema(SubClientForm::schema());
     }
 
     public static function table(Table $table): Table

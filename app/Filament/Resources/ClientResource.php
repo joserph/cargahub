@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\ClientResource\Pages;
 use App\Filament\Resources\ClientResource\RelationManagers;
+use App\Filament\Resources\ClientResource\RelationManagers\SubClientsRelationManager;
 use App\Models\Client;
 use App\Services\ClientForm;
 use Filament\Forms;
@@ -106,7 +107,7 @@ class ClientResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            SubClientsRelationManager::class
         ];
     }
 

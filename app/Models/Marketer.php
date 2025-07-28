@@ -37,4 +37,5 @@ class Marketer extends Model
     {
         return $this->belongsToMany(Client::class);
     }
+
 }

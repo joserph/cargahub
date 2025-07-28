@@ -18,6 +18,10 @@ return new class extends Migration
             $table->string('name')->unique();
             $table->string('type_load');
             $table->string('status')->index()->default(true);
+            $table->foreignId('user_id')->nullable()->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('user_update')->nullable()->constrained()->onUpdate('cascade')->onDelete('cascade')->references('id')->on('users');
+
+            $table->softDeletes();
 
             $table->timestamps();
         });
