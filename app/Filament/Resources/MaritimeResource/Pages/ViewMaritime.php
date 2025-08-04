@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\MaritimeResource\Pages;
 
 use App\Filament\Resources\MaritimeResource;
+use App\Filament\Resources\MaritimeResource\Widgets\CoordinationMaritimeLinkWidget;
 use Filament\Actions;
 use Filament\Resources\Pages\ViewRecord;
 
@@ -14,6 +15,13 @@ class ViewMaritime extends ViewRecord
     {
         return [
             Actions\EditAction::make(),
+        ];
+    }
+
+    protected function getHeaderWidgets(): array
+    {
+        return [
+            CoordinationMaritimeLinkWidget::class
         ];
     }
 }

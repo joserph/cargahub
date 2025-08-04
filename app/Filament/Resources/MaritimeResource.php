@@ -105,4 +105,11 @@ class MaritimeResource extends Resource
                 SoftDeletingScope::class,
             ]);
     }
+
+    public static function getWidgets(): array
+    {
+        return [
+            \App\Filament\Resources\MaritimeResource\Widgets\CoordinationMaritimeLinkWidget::class
+        ];
+    }
 }

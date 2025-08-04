@@ -68,6 +68,7 @@ class CoordinationMaritimeResource extends Resource
             'index' => Pages\ListCoordinationMaritimes::route('/'),
             'create' => Pages\CreateCoordinationMaritime::route('/create'),
             'edit' => Pages\EditCoordinationMaritime::route('/{record}/edit'),
+            'by-maritime' => Pages\CoordinationByMaritime::route('/by-maritime/{maritime}')
         ];
     }
 }
