@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\CoordinationMaritimeResource\Pages;
 use App\Filament\Resources\CoordinationMaritimeResource\RelationManagers;
 use App\Models\CoordinationMaritime;
+use App\Services\CoordinationMaritimeForm;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -19,21 +20,20 @@ class CoordinationMaritimeResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    public static function getEloquentQuery(): Builder
+    public static function shouldRegisterNavigation(): bool
     {
-        $query = parent::getEloquentQuery();
-        if($maritimeId = request()->get('maritime_id')){
-            $query->where('maritime_id', $maritimeId);
-        }
-        return $query;
+        return false;
+    }
+
+    public static function getParent(): ?string
+    {
+        return MaritimeResource::class;
     }
 
     public static function form(Form $form): Form
     {
         return $form
-            ->schema([
-                //
-            ]);
+            ->schema(CoordinationMaritimeForm::schema());
     }
 
     public static function table(Table $table): Table
@@ -66,9 +66,14 @@ class CoordinationMaritimeResource extends Resource
     {
         return [
             'index' => Pages\ListCoordinationMaritimes::route('/'),
-            'create' => Pages\CreateCoordinationMaritime::route('/create'),
+            //'create' => Pages\CreateCoordinationMaritime::route('/create'),
             'edit' => Pages\EditCoordinationMaritime::route('/{record}/edit'),
-            'by-maritime' => Pages\CoordinationByMaritime::route('/by-maritime/{maritime}')
+            // 'by-maritime' => Pages\CoordinationByMaritime::route('/by-maritime/{maritime}')
         ];
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()->where('maritime_id', request()->route('record'));
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\MaritimeResource\Widgets;
 
 use App\Models\Maritime;
+use Filament\Forms\Components\Builder;
 use Filament\Widgets\Widget;
 
 class CoordinationMaritimeLinkWidget extends Widget
@@ -14,5 +15,10 @@ class CoordinationMaritimeLinkWidget extends Widget
     public function mount(Maritime $record)
     {
         $this->record = $record;
+    }
+
+    protected function getTableQuery(): Builder
+    {
+        return $this->record->coordinationMaritimes()->getQuery();
     }
 }

@@ -41,7 +41,7 @@ class CoordinationByMaritime extends ListRecords
 
     protected function getTableQuery(): Builder
     {
-        abort_unless($this->maritime, 404);
+        // abort_unless($this->maritime, 404);
 
         return $this->maritime->coordinationMaritimes()->getQuery();
     }

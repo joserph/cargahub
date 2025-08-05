@@ -1,9 +1,3 @@
-{{-- <x-filament-widgets::widget>
-    <x-filament::section>
-        
-    </x-filament::section>
-</x-filament-widgets::widget> --}}
-
 <x-filament::widget>
     <x-filament::card>
         <div class="flex justify-between items-center">
@@ -17,3 +11,9 @@
         </div>
     </x-filament::card>
 </x-filament::widget>
+
+{{-- <x-filament::widget>
+    <x-filament::card>
+        <livewire:filament.admin.resources.coordination-maritime-resource.widgets.coordination-maritime-table :maritime="$record" />
+    </x-filament::card>
+</x-filament::widget> --}}
