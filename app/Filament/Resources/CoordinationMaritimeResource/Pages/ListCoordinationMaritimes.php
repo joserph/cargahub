@@ -13,7 +13,21 @@ class ListCoordinationMaritimes extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            Actions\CreateAction::make()
+                ->modalHeading('Crear item de coordinacion')
+                ->modalWidth('7xl')
+                ->mountUsing(function ($form) {
+                    $form->fill([
+                        'maritime_id' => request()->get('maritime'),
+                        'user_id' => auth()->id(),
+                        'user_update' => auth()->id(),
+                    ]);
+                })
+                ->mutateFormDataUsing(function (array $data): array {
+                    // Ya no necesitas tomar maritime_id aquí si lo pasaste arriba
+                    
+                    return $data;
+                })
         ];
     }
 }
