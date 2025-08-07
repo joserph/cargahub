@@ -21,4 +21,5 @@ class CoordinationMaritimeLinkWidget extends Widget
     {
         return $this->record->coordinationMaritimes()->getQuery();
     }
+    
 }

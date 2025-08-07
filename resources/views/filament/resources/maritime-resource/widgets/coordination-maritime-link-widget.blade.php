@@ -4,16 +4,10 @@
             <h3 class="text-lg font-bold">Coordinaciones Marítimas</h3>
             <x-filament::button
                 tag="a"
-                href="{{ route('filament.admin.resources.coordination-maritimes.index', ['maritime' => $record->id]) }}"
+                href="{{ \App\Filament\Resources\MaritimeResource::getUrl('coordination', ['record' => $record]) }}"
             >
                 Ver Coordinaciones
             </x-filament::button>
         </div>
     </x-filament::card>
 </x-filament::widget>
-
-{{-- <x-filament::widget>
-    <x-filament::card>
-        <livewire:filament.admin.resources.coordination-maritime-resource.widgets.coordination-maritime-table :maritime="$record" />
-    </x-filament::card>
-</x-filament::widget> --}}

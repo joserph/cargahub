@@ -3,6 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\MaritimeResource\Pages;
+use App\Filament\Resources\MaritimeResource\Pages\CoordinationMaritimePage;
 use App\Filament\Resources\MaritimeResource\RelationManagers;
 use App\Models\Maritime;
 use App\Services\MaritimeForm;
@@ -95,6 +96,7 @@ class MaritimeResource extends Resource
             // 'create' => Pages\CreateMaritime::route('/create'),
             'view' => Pages\ViewMaritime::route('/{record}'),
             // 'edit' => Pages\EditMaritime::route('/{record}/edit'),
+            'coordination' => CoordinationMaritimePage::route('/{record}/coordination'),
         ];
     }
 

@@ -34,7 +34,19 @@ final class CoordinationMaritimeForm
                 ->schema([
                     Grid::make()
                         ->schema([
-                            Hidden::make('maritime_id'),
+                            Select::make('farm_id')
+                                ->label('Finca')
+                                ->relationship('farm', 'name')
+                                ->preload()
+                                ->searchable()
+                                ->columnSpan(['default' => 1, 'sm' => 1, 'md' => 1, 'lg' => 1, 'xl' => 2])
+                                ->required(),
+                            // Select::make('client_id')
+                            //     ->label('Cliente')
+                            //     ->relationship('client', 'name')
+                            //     ->searchable()
+                            //     ->columnSpan(['default' => 1, 'sm' => 1, 'md' => 1, 'lg' => 1, 'xl' => 2])
+                            //     ->required(),
                             TextInput::make('hawb')
                                 ->required()
                                 ->columnSpan(['default' => 1, 'sm' => 1, 'md' => 1, 'lg' => 1, 'xl' => 2])
@@ -51,7 +63,7 @@ final class CoordinationMaritimeForm
                                 ->columnSpan(['default' => 1, 'sm' => 1, 'md' => 1, 'lg' => 1, 'xl' => 1]),
                             TextInput::make('hb')
                                 ->label('HB')
-                                ->default(10)
+                                ->default(0)
                                 ->live()
                                 ->afterStateUpdated(function ($state, callable $set, callable $get) {
                                     CoordinationMaritimeForm::calcularValores($get, $set);
@@ -60,6 +72,7 @@ final class CoordinationMaritimeForm
                                 ->columnSpan(['default' => 1, 'sm' => 1, 'md' => 1, 'lg' => 1, 'xl' => 1]),
                             TextInput::make('qb')
                                 ->label('QB')
+                                ->default(0)
                                 ->live()
                                 ->afterStateUpdated(function ($state, callable $set, callable $get) {
                                     CoordinationMaritimeForm::calcularValores($get, $set);
@@ -68,6 +81,7 @@ final class CoordinationMaritimeForm
                                 ->columnSpan(['default' => 1, 'sm' => 1, 'md' => 1, 'lg' => 1, 'xl' => 1]),
                             TextInput::make('eb')
                                 ->label('EB')
+                                ->default(0)
                                 ->live()
                                 ->afterStateUpdated(function ($state, callable $set, callable $get) {
                                     CoordinationMaritimeForm::calcularValores($get, $set);
@@ -76,6 +90,7 @@ final class CoordinationMaritimeForm
                                 ->columnSpan(['default' => 1, 'sm' => 1, 'md' => 1, 'lg' => 1, 'xl' => 1]),
                             TextInput::make('db')
                                 ->label('DB')
+                                ->default(0)
                                 ->live()
                                 ->afterStateUpdated(function ($state, callable $set, callable $get) {
                                     CoordinationMaritimeForm::calcularValores($get, $set);
