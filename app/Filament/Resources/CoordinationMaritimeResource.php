@@ -25,11 +25,6 @@ class CoordinationMaritimeResource extends Resource
         return false;
     }
 
-    public static function getParent(): ?string
-    {
-        return MaritimeResource::class;
-    }
-
     public static function form(Form $form): Form
     {
         return $form
@@ -74,6 +69,7 @@ class CoordinationMaritimeResource extends Resource
 
     public static function getEloquentQuery(): Builder
     {
-        return parent::getEloquentQuery()->where('maritime_id', request()->route('record'));
+        // dd(request()->query('maritime'));
+        return parent::getEloquentQuery()->where('maritime_id', request()->query('maritime'));
     }
 }

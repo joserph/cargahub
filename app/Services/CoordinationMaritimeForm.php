@@ -34,77 +34,51 @@ final class CoordinationMaritimeForm
                 ->schema([
                     Grid::make()
                         ->schema([
+                            Hidden::make('maritime_id'),
                             TextInput::make('hawb')
                                 ->required()
                                 ->columnSpan(['default' => 1, 'sm' => 1, 'md' => 1, 'lg' => 1, 'xl' => 2])
                                 ->autofocus(),
                             TextInput::make('fb')
                                 ->label('FB')
-                                ->live(debounce: 500)
+                                ->default(0)
+                                ->reactive()
+                                ->live()
                                 ->afterStateUpdated(function ($state, callable $set, callable $get) {
-                                    $set('fulls',
-                                        0.5 * (float) $state +
-                                        0.5 * (float) $get('hb') +
-                                        0.5 * (float) $get('qb') +
-                                        0.5 * (float) $get('eb') +
-                                        0.5 * (float) $get('db')
-                                    );
+                                    CoordinationMaritimeForm::calcularValores($get, $set);
                                 })
                                 ->numeric()
                                 ->columnSpan(['default' => 1, 'sm' => 1, 'md' => 1, 'lg' => 1, 'xl' => 1]),
                             TextInput::make('hb')
                                 ->label('HB')
-                                ->live(debounce: 500)
+                                ->default(10)
+                                ->live()
                                 ->afterStateUpdated(function ($state, callable $set, callable $get) {
-                                    $set('fulls',
-                                        0.5 * (float) $state +
-                                        0.5 * (float) $get('hb') +
-                                        0.5 * (float) $get('qb') +
-                                        0.5 * (float) $get('eb') +
-                                        0.5 * (float) $get('db')
-                                    );
+                                    CoordinationMaritimeForm::calcularValores($get, $set);
                                 })
                                 ->numeric()
                                 ->columnSpan(['default' => 1, 'sm' => 1, 'md' => 1, 'lg' => 1, 'xl' => 1]),
                             TextInput::make('qb')
                                 ->label('QB')
-                                ->live(debounce: 500)
+                                ->live()
                                 ->afterStateUpdated(function ($state, callable $set, callable $get) {
-                                    $set('fulls',
-                                        0.5 * (float) $state +
-                                        0.5 * (float) $get('hb') +
-                                        0.5 * (float) $get('qb') +
-                                        0.5 * (float) $get('eb') +
-                                        0.5 * (float) $get('db')
-                                    );
+                                    CoordinationMaritimeForm::calcularValores($get, $set);
                                 })
                                 ->numeric()
                                 ->columnSpan(['default' => 1, 'sm' => 1, 'md' => 1, 'lg' => 1, 'xl' => 1]),
                             TextInput::make('eb')
                                 ->label('EB')
-                                ->live(debounce: 500)
+                                ->live()
                                 ->afterStateUpdated(function ($state, callable $set, callable $get) {
-                                    $set('fulls',
-                                        0.5 * (float) $state +
-                                        0.5 * (float) $get('hb') +
-                                        0.5 * (float) $get('qb') +
-                                        0.5 * (float) $get('eb') +
-                                        0.5 * (float) $get('db')
-                                    );
+                                    CoordinationMaritimeForm::calcularValores($get, $set);
                                 })
                                 ->numeric()
                                 ->columnSpan(['default' => 1, 'sm' => 1, 'md' => 1, 'lg' => 1, 'xl' => 1]),
                             TextInput::make('db')
                                 ->label('DB')
-                                ->live(debounce: 500)
+                                ->live()
                                 ->afterStateUpdated(function ($state, callable $set, callable $get) {
-                                    $set('fulls',
-                                        0.5 * (float) $state +
-                                        0.5 * (float) $get('hb') +
-                                        0.5 * (float) $get('qb') +
-                                        0.5 * (float) $get('eb') +
-                                        0.5 * (float) $get('db')
-                                    );
+                                    CoordinationMaritimeForm::calcularValores($get, $set);
                                 })
                                 ->numeric()
                                 ->columnSpan(['default' => 1, 'sm' => 1, 'md' => 1, 'lg' => 1, 'xl' => 1]),
@@ -124,6 +98,25 @@ final class CoordinationMaritimeForm
                 
             ])->columns(['default' => 1, 'sm' => 4, 'md' => 4, 'lg' => 4, 'xl' => 4,]),
         ];
+    }
+
+    private static function calcularValores(callable $get, callable $set): void
+    {
+        $set('fulls',
+            1 * (float) $get('fb') +
+            0.5 * (float) $get('hb') +
+            0.25 * (float) $get('qb') +
+            0.125 * (float) $get('eb') +
+            0.0625 * (float) $get('db')
+        );
+
+        $set('pieces',
+            (int) $get('fb') +
+            (int) $get('hb') +
+            (int) $get('qb') +
+            (int) $get('eb') +
+            (int) $get('db')
+        );
     }
 
     
