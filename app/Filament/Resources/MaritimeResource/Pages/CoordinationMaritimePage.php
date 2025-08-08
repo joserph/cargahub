@@ -50,7 +50,8 @@ class CoordinationMaritimePage extends Page
 
                     $this->dispatch('notify', type: 'success', message: '¡Coordinación guardada!');
                 })
-                ->modalHeading('Nueva Coordinación Marítima'),
+                ->modalHeading('Item Coordinación Marítima')
+                ->modalWidth('7xl'),
         ];
     }
 

@@ -33,29 +33,9 @@ class CoordinationMaritime extends Model
         'observation'
     ];
 
-    public function maritime()
-    {
-        return $this->belongsTo(Maritime::class);
-    }
-
-    public function client()
-    {
-        return $this->belongsTo(Client::class);
-    }
-
     public function farm()
     {
         return $this->belongsTo(Farm::class);
-    }
-
-    public function variety()
-    {
-        return $this->belongsTo(Variety::class);
-    }
-
-    public function marketer()
-    {
-        return $this->belongsTo(Marketer::class);
     }
 
 }

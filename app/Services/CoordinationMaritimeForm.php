@@ -3,6 +3,8 @@
 namespace App\Services;
 
 use App\Models\City;
+use App\Models\Client;
+use App\Models\Farm;
 use App\Models\Logistic;
 use App\Models\State;
 use Date;
@@ -36,21 +38,27 @@ final class CoordinationMaritimeForm
                         ->schema([
                             Select::make('farm_id')
                                 ->label('Finca')
-                                ->relationship('farm', 'name')
+                                ->options(Farm::query()
+                                    ->pluck('name', 'id')
+                                    ->toArray()
+                                )
                                 ->preload()
                                 ->searchable()
-                                ->columnSpan(['default' => 1, 'sm' => 1, 'md' => 1, 'lg' => 1, 'xl' => 2])
+                                ->autofocus()
+                                ->columnSpan(['default' => 1, 'sm' => 1, 'md' => 1, 'lg' => 1, 'xl' => 3])
                                 ->required(),
-                            // Select::make('client_id')
-                            //     ->label('Cliente')
-                            //     ->relationship('client', 'name')
-                            //     ->searchable()
-                            //     ->columnSpan(['default' => 1, 'sm' => 1, 'md' => 1, 'lg' => 1, 'xl' => 2])
-                            //     ->required(),
+                            Select::make('client_id')
+                                ->label('Cliente')
+                                ->options(Client::query()
+                                    ->pluck('name', 'id')
+                                    ->toArray()
+                                )
+                                ->searchable()
+                                ->columnSpan(['default' => 1, 'sm' => 1, 'md' => 1, 'lg' => 1, 'xl' => 3])
+                                ->required(),
                             TextInput::make('hawb')
                                 ->required()
-                                ->columnSpan(['default' => 1, 'sm' => 1, 'md' => 1, 'lg' => 1, 'xl' => 2])
-                                ->autofocus(),
+                                ->columnSpan(['default' => 1, 'sm' => 1, 'md' => 1, 'lg' => 1, 'xl' => 2]),
                             TextInput::make('fb')
                                 ->label('FB')
                                 ->default(0)
@@ -110,6 +118,10 @@ final class CoordinationMaritimeForm
                                 ->columnSpan(['default' => 1, 'sm' => 1, 'md' => 1, 'lg' => 1, 'xl' => 1]),
                         ])->columns(['default' => 1, 'sm' => 2, 'md' => 8, 'lg' => 8, 'xl' => 8,]),
                 ]),
+                Section::make('Coordinacion')
+                    ->schema([
+
+                    ]),
                 
             ])->columns(['default' => 1, 'sm' => 4, 'md' => 4, 'lg' => 4, 'xl' => 4,]),
         ];
