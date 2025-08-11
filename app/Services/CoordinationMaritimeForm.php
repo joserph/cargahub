@@ -7,6 +7,7 @@ use App\Models\Client;
 use App\Models\Farm;
 use App\Models\Logistic;
 use App\Models\State;
+use App\Models\Variety;
 use Date;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
@@ -54,11 +55,28 @@ final class CoordinationMaritimeForm
                                     ->toArray()
                                 )
                                 ->searchable()
-                                ->columnSpan(['default' => 1, 'sm' => 1, 'md' => 1, 'lg' => 1, 'xl' => 3])
+                                ->columnSpan(['default' => 1, 'sm' => 1, 'md' => 1, 'lg' => 1, 'xl' => 2])
+                                ->required(),
+                            Select::make('variety_id')
+                                ->label('Variedad')
+                                ->options(Variety::query()
+                                    ->pluck('name', 'id')
+                                    ->toArray()
+                                )
+                                ->searchable()
+                                ->multiple()
+                                ->columnSpan(['default' => 1, 'sm' => 1, 'md' => 1, 'lg' => 1, 'xl' => 2])
                                 ->required(),
                             TextInput::make('hawb')
                                 ->required()
-                                ->columnSpan(['default' => 1, 'sm' => 1, 'md' => 1, 'lg' => 1, 'xl' => 2]),
+                                ->columnSpan(['default' => 1, 'sm' => 1, 'md' => 1, 'lg' => 1, 'xl' => 1]),
+                            
+                        ])->columns(['default' => 1, 'sm' => 2, 'md' => 8, 'lg' => 8, 'xl' => 8,]),
+                ]),
+                Section::make('Coordinacion')
+                    ->schema([
+                        Grid::make()
+                        ->schema([
                             TextInput::make('fb')
                                 ->label('FB')
                                 ->default(0)
@@ -117,10 +135,6 @@ final class CoordinationMaritimeForm
                                 ->numeric()
                                 ->columnSpan(['default' => 1, 'sm' => 1, 'md' => 1, 'lg' => 1, 'xl' => 1]),
                         ])->columns(['default' => 1, 'sm' => 2, 'md' => 8, 'lg' => 8, 'xl' => 8,]),
-                ]),
-                Section::make('Coordinacion')
-                    ->schema([
-
                     ]),
                 
             ])->columns(['default' => 1, 'sm' => 4, 'md' => 4, 'lg' => 4, 'xl' => 4,]),

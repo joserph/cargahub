@@ -38,4 +38,8 @@ class CoordinationMaritime extends Model
         return $this->belongsTo(Farm::class);
     }
 
+    protected $casts = [
+        'variety_id' => 'array',
+    ];
+
 }
