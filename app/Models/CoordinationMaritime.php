@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class CoordinationMaritime extends Model
 {
@@ -26,7 +27,7 @@ class CoordinationMaritime extends Model
         'client_id',
         'farm_id',
         'maritime_id',
-        'variety_id',
+        'varieties',
         'user_id',
         'user_update',
         'marketer_id',
@@ -38,8 +39,13 @@ class CoordinationMaritime extends Model
         return $this->belongsTo(Farm::class);
     }
 
+    public function client()
+    {
+        return $this->belongsTo(Client::class);
+    }
+
     protected $casts = [
-        'variety_id' => 'array',
+        'varieties' => 'array',
     ];
 
 }

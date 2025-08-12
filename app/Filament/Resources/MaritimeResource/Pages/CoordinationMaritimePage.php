@@ -3,7 +3,9 @@
 namespace App\Filament\Resources\MaritimeResource\Pages;
 
 use App\Filament\Resources\MaritimeResource;
+use App\Models\CoordinationMaritime;
 use App\Models\Maritime;
+use App\Models\Variety;
 use App\Services\CoordinationMaritimeForm;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\Resource;
@@ -18,10 +20,12 @@ class CoordinationMaritimePage extends Page
     protected static string $view = 'filament.resources.maritime-resource.pages.coordination-maritime-page';
 
     public Maritime $record;
+    public $varieties;
 
     public function mount(Maritime $record): void
     {
         $this->record = $record;
+        $this->varieties = Variety::get();
     }
 
     public static function getRouteName(?string $panel = null): string
@@ -54,5 +58,15 @@ class CoordinationMaritimePage extends Page
                 ->modalWidth('7xl'),
         ];
     }
+    public function getItemsProperty()
+    {
+        return CoordinationMaritime::query()
+            ->with('client')
+            ->orderBy('client_id')
+            ->orderBy('id', 'desc')
+            ->get()
+            ->groupBy(fn($item) => $item->client->name ?? 'Sin cliente');
+    }
+
 
 }

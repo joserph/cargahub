@@ -57,16 +57,16 @@ final class CoordinationMaritimeForm
                                 ->searchable()
                                 ->columnSpan(['default' => 1, 'sm' => 1, 'md' => 1, 'lg' => 1, 'xl' => 2])
                                 ->required(),
-                            Select::make('variety_id')
-                                ->label('Variedad')
+                            Select::make('varieties')
+                                ->label('Variedades')
                                 ->options(Variety::query()
                                     ->pluck('name', 'id')
                                     ->toArray()
                                 )
                                 ->searchable()
-                                ->multiple()
-                                ->columnSpan(['default' => 1, 'sm' => 1, 'md' => 1, 'lg' => 1, 'xl' => 2])
-                                ->required(),
+                                ->preload()
+                                ->columnSpan(['default' => 1, 'sm' => 4, 'md' => 1, 'lg' => 2, 'xl' => 2])
+                                ->multiple(),
                             TextInput::make('hawb')
                                 ->required()
                                 ->columnSpan(['default' => 1, 'sm' => 1, 'md' => 1, 'lg' => 1, 'xl' => 1]),

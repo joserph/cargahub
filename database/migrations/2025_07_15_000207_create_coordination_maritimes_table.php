@@ -62,7 +62,7 @@ return new class extends Migration
             $table->foreignId('client_id')->nullable()->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('farm_id')->nullable()->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('maritime_id')->nullable()->constrained()->onUpdate('cascade')->onDelete('cascade');
-            $table->foreignId('variety_id')->nullable()->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->string('varieties')->nullable();
             $table->foreignId('user_id')->nullable()->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('user_update')->nullable()->constrained()->onUpdate('cascade')->onDelete('cascade')->references('id')->on('users');
             $table->foreignId('marketer_id')->nullable()->constrained()->onUpdate('cascade')->onDelete('cascade');
