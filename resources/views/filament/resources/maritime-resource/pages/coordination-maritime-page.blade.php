@@ -1,73 +1,27 @@
 <x-filament::page>
     <div class="overflow-x-auto">
-        
-        <table class="border-collapse border border-gray-400">
-            <thead>
-                <tr>
-                    <th class="border border-gray-300">OrbiQ</th>
-                    <th class="border border-gray-300">OrbiQ</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                <td class="border border-gray-300 ...">Indiana</td>
-                <td class="border border-gray-300 ...">Indianapolis</td>
-                </tr>
-                <tr>
-                <td class="border border-gray-300 ...">Ohio</td>
-                <td class="border border-gray-300 ...">Columbus</td>
-                </tr>
-                <tr>
-                <td class="border border-gray-300 ...">Michigan</td>
-                <td class="border border-gray-300 ...">Detroit</td>
-                </tr>
-            </tbody>
-        </table>
-
         <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
         <div class="grid flex-1 auto-cols-fr gap-y-8">
             <div class="flex flex-col gap-y-6">
                 <div x-load="" x-load-src="https://cargahub.test/js/filament/tables/components/table.js?v=3.3.4.0" x-data="table" class="fi-ta">
                     <div class="fi-ta-ctn divide-y divide-gray-200 overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-gray-950/5 dark:divide-white/10 dark:bg-gray-900 dark:ring-white/10">
-                        <div x-bind:hidden="! (true || (selectedRecords.length &amp;&amp; 1))" x-show="true || (selectedRecords.length &amp;&amp; 1)" class="fi-ta-header-ctn divide-y divide-gray-200 dark:divide-white/10">
-                            <div x-show="true || (selectedRecords.length &amp;&amp; 1)" class="fi-ta-header-toolbar flex items-center justify-between gap-x-4 px-4 py-3 sm:px-6">
-                                <div class="ms-auto flex items-center gap-x-4">ORBIQ</div>
-                            </div>
-                        </div>
-                        <div class="fi-ta-selection-indicator flex flex-col justify-between gap-y-1 bg-gray-50 px-3 py-2 dark:bg-white/5 sm:flex-row sm:items-center sm:px-6 sm:py-1.5" wire:key="edLISNhftVa0ff2EGFT4.table.selection.indicator" colspan="7" x-bind:hidden="! selectedRecords.length" x-show="selectedRecords.length" hidden="true" style="display: none;">
-                            <div class="flex gap-x-3">
-                                <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="animate-spin h-5 w-5 text-gray-400 dark:text-gray-500" x-show="isLoading" style="display: none;">
-                                    <path clip-rule="evenodd" d="M12 19C15.866 19 19 15.866 19 12C19 8.13401 15.866 5 12 5C8.13401 5 5 8.13401 5 12C5 15.866 8.13401 19 12 19ZM12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" fill-rule="evenodd" fill="currentColor" opacity="0.2"></path>
-                                    <path d="M2 12C2 6.47715 6.47715 2 12 2V5C8.13401 5 5 8.13401 5 12H2Z" fill="currentColor"></path>
-                                </svg>
-                                <span x-text="
-                                        window.pluralize('1 registro seleccionado|:count registros seleccionados', selectedRecords.length, {
-                                            count: selectedRecords.length,
-                                        })
-                                    " class="text-sm font-medium leading-6 text-gray-700 dark:text-gray-200">1 registro seleccionado</span>
-                            </div>
-                            <div class="flex gap-x-3">
-                                <div class="flex gap-x-3">
-                                    <button class="fi-link group/link relative inline-flex items-center justify-center outline-none fi-size-md fi-link-size-md gap-1.5 fi-color-custom fi-color-primary" type="button" wire:loading.attr="disabled" x-on:click="selectAllRecords" x-show="2 !== selectedRecords.length" wire:key="edLISNhftVa0ff2EGFT4table.selection.indicator.actions.select-all.2.1">
-                                    <span class="font-semibold text-sm text-custom-600 dark:text-custom-400 group-hover/link:underline group-focus-visible/link:underline" style="--c-400:var(--primary-400);--c-600:var(--primary-600);">
-                                        Selecciona todos 2
-                                    </span>
-                                    </button>
-                                    <button class="fi-link group/link relative inline-flex items-center justify-center outline-none fi-size-md fi-link-size-md gap-1.5 fi-color-custom fi-color-danger" type="button" wire:loading.attr="disabled" x-on:click="deselectAllRecords">
-                                        <span class="font-semibold text-sm text-custom-600 dark:text-custom-400 group-hover/link:underline group-focus-visible/link:underline" style="--c-400:var(--danger-400);--c-600:var(--danger-600);">
-                                            Deselecciona todos
-                                        </span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
                         <div class="fi-ta-content relative divide-y divide-gray-200 overflow-x-auto dark:divide-white/10 dark:border-t-white/10">
                             <table class="fi-ta-table w-full table-auto divide-y divide-gray-200 text-start dark:divide-white/5">
                                 <thead class="divide-y divide-gray-200 dark:divide-white/5">
                                     <tr class="bg-gray-50 dark:bg-white/5">
+                                        <th colspan="7" 
+                                            class="fi-ta-header-cell px-3 py-2 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-name border border-gray-300 text-center">
+                                            <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-center">
+                                                <span class="fi-ta-header-cell-label text-sm font-semibold text-gray-950 dark:text-white">
+                                                    ORBIQ
+                                                </span>
+                                            </span>
+                                        </th>
+                                    </tr>
+                                    <tr class="bg-gray-50 dark:bg-white/5">
                                         <th class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-ta-selection-cell w-1 border border-gray-300">
-                                            <div class="px-3 py-4">
+                                            <div class="px-3 py-2">
                                                 <label class="flex">
                                                     <input type="checkbox" class="fi-checkbox-input rounded border-none bg-white shadow-sm ring-1 transition duration-75 checked:ring-0 focus:ring-2 focus:ring-offset-0 disabled:pointer-events-none disabled:bg-gray-50 disabled:text-gray-50 disabled:checked:bg-gray-400 disabled:checked:text-gray-400 dark:bg-white/5 dark:disabled:bg-transparent dark:disabled:checked:bg-gray-600 text-primary-600 ring-gray-950/10 focus:ring-primary-600 checked:focus:ring-primary-500/50 dark:text-primary-500 dark:ring-white/20 dark:checked:bg-primary-500 dark:focus:ring-primary-500 dark:checked:focus:ring-primary-400/50 dark:disabled:ring-white/10 fi-ta-page-checkbox" wire:loading.attr="disabled" wire:target="gotoPage,nextPage,previousPage,removeTableFilter,removeTableFilters,reorderTable,resetTableFiltersForm,sortTable,tableColumnSearches,tableFilters,tableRecordsPerPage,tableSearch" wire:key="edLISNhftVa0ff2EGFT4.table.bulk-select-page.checkbox.FYOQWK9pjCRbjmBq" x-bind:checked="const recordsOnPage = getRecordsOnPage()
                                                                                     if (recordsOnPage.length &amp;&amp; areRecordsSelected(recordsOnPage)) {
@@ -82,21 +36,21 @@
                                                 </label>
                                             </div>
                                         </th>
-                                        <th class="fi-ta-header-cell px-3 py-3.5 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-name border border-gray-300" style=";">
+                                        <th class="fi-ta-header-cell px-3 py-2 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-name border border-gray-300" style=";">
                                             <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-start">
                                                 <span class="fi-ta-header-cell-label text-sm font-semibold text-gray-950 dark:text-white">
                                                     Nombre
                                                 </span>
                                             </span>
                                         </th>
-                                        <th class="fi-ta-header-cell px-3 py-3.5 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-marketers.name border border-gray-300" style=";">
+                                        <th class="fi-ta-header-cell px-3 py-2 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-marketers.name border border-gray-300" style=";">
                                             <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-start">
                                                 <span class="fi-ta-header-cell-label text-sm font-semibold text-gray-950 dark:text-white">
                                                     Camercializadoras
                                                 </span>
                                             </span>
                                         </th>
-                                        <th class="fi-ta-header-cell px-3 py-3.5 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-type-load border border-gray-300" style=";">
+                                        <th class="fi-ta-header-cell px-3 py-2 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-type-load border border-gray-300" style=";">
                                             <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-start">
                                                 <span class="fi-ta-header-cell-label text-sm font-semibold text-gray-950 dark:text-white">
                                                     Tipo de Carga
@@ -104,14 +58,14 @@
                                             </span>
                                         </th>
                                                     
-                                        <th class="fi-ta-header-cell px-3 py-3.5 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-status border border-gray-300" style=";">
+                                        <th class="fi-ta-header-cell px-3 py-2 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-status border border-gray-300" style=";">
                                             <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-start">
                                                 <span class="fi-ta-header-cell-label text-sm font-semibold text-gray-950 dark:text-white">
                                                     Estatus
                                                 </span>
                                             </span>
                                         </th>
-                                        <th class="fi-ta-header-cell px-3 py-3.5 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-owners.owner border border-gray-300" style=";">
+                                        <th class="fi-ta-header-cell px-3 py-2 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-owners.owner border border-gray-300" style=";">
                                             <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-start">
                                                 <span class="fi-ta-header-cell-label text-sm font-semibold text-gray-950 dark:text-white">
                                                     Propietarios
@@ -130,7 +84,7 @@
                                             '[&amp;&gt;*:first-child]:relative [&amp;&gt;*:first-child]:before:absolute [&amp;&gt;*:first-child]:before:start-0 [&amp;&gt;*:first-child]:before:inset-y-0 [&amp;&gt;*:first-child]:before:w-0.5 [&amp;&gt;*:first-child]:before:bg-primary-600 [&amp;&gt;*:first-child]:dark:before:bg-primary-500': isRecordSelected('1'),
                                         }" class="fi-ta-row [@media(hover:hover)]:transition [@media(hover:hover)]:duration-75 hover:bg-gray-50 dark:hover:bg-white/5" wire:key="edLISNhftVa0ff2EGFT4.table.records.1">
                                         <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-ta-selection-cell w-1 border border-gray-300">
-                                            <div class="px-3 py-4">
+                                            <div class="px-3 py-2">
                                                 <label class="flex">
                                                     <input type="checkbox" class="fi-checkbox-input rounded border-none bg-white shadow-sm ring-1 transition duration-75 checked:ring-0 focus:ring-2 focus:ring-offset-0 disabled:pointer-events-none disabled:bg-gray-50 disabled:text-gray-50 disabled:checked:bg-gray-400 disabled:checked:text-gray-400 dark:bg-white/5 dark:disabled:bg-transparent dark:disabled:checked:bg-gray-600 text-primary-600 ring-gray-950/10 focus:ring-primary-600 checked:focus:ring-primary-500/50 dark:text-primary-500 dark:ring-white/20 dark:checked:bg-primary-500 dark:focus:ring-primary-500 dark:checked:focus:ring-primary-400/50 dark:disabled:ring-white/10 fi-ta-record-checkbox" wire:loading.attr="disabled" wire:target="gotoPage,nextPage,previousPage,removeTableFilter,removeTableFilters,reorderTable,resetTableFiltersForm,sortTable,tableColumnSearches,tableFilters,tableRecordsPerPage,tableSearch" value="1" x-model="selectedRecords">
                                                     <span class="sr-only">
@@ -142,7 +96,7 @@
                                         <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-name border border-gray-300" wire:key="edLISNhftVa0ff2EGFT4.table.record.1.column.name">
                                             <div class="fi-ta-col-wrp">
                                                 <a href="https://cargahub.test/admin/clients/1/view" class="flex w-full disabled:pointer-events-none justify-start text-start">
-                                                    <div class="fi-ta-text grid w-full gap-y-1 px-3 py-4">
+                                                    <div class="fi-ta-text grid w-full gap-y-1 px-3 py-2">
                                                         <div class="flex ">
                                                             <div class="flex max-w-max" style="">
                                                                 <div class="fi-ta-text-item inline-flex items-center gap-1.5  ">
@@ -159,7 +113,7 @@
                                         <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-marketers.name border border-gray-300" wire:key="edLISNhftVa0ff2EGFT4.table.record.1.column.marketers.name">
                                             <div class="fi-ta-col-wrp">
                                                 <a href="https://cargahub.test/admin/clients/1/view" class="flex w-full disabled:pointer-events-none justify-start text-start">
-                                                    <div class="fi-ta-text grid w-full gap-y-1 px-3 py-4">
+                                                    <div class="fi-ta-text grid w-full gap-y-1 px-3 py-2">
                                                         <div class="flex ">
                                                             <div class="flex max-w-max" style="">
                                                                 <div class="fi-ta-text-item inline-flex items-center gap-1.5  ">
@@ -176,7 +130,7 @@
                                         <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-type-load border border-gray-300" wire:key="edLISNhftVa0ff2EGFT4.table.record.1.column.type_load">
                                             <div class="fi-ta-col-wrp">
                                                 <a href="https://cargahub.test/admin/clients/1/view" class="flex w-full disabled:pointer-events-none justify-start text-start">
-                                                    <div class="fi-ta-text grid w-full gap-y-1 px-3 py-4">
+                                                    <div class="fi-ta-text grid w-full gap-y-1 px-3 py-2">
                                                         <div class="flex ">
                                                             <div class="flex max-w-max" style="">
                                                                 <div class="fi-ta-text-item inline-flex items-center gap-1.5  ">
@@ -193,7 +147,7 @@
                                         <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-status border border-gray-300" wire:key="edLISNhftVa0ff2EGFT4.table.record.1.column.status">
                                             <div class="fi-ta-col-wrp">
                                                 <a href="https://cargahub.test/admin/clients/1/view" class="flex w-full disabled:pointer-events-none justify-start text-start">
-                                                    <div class="fi-ta-icon flex gap-1.5 px-3 py-4">
+                                                    <div class="fi-ta-icon flex gap-1.5 px-3 py-2">
                                                         <svg style="--c-400:var(--success-400);--c-500:var(--success-500);" class="fi-ta-icon-item fi-ta-icon-item-size-lg h-6 w-6 fi-color-custom text-custom-500 dark:text-custom-400 fi-color-success" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
                                                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
                                                         </svg>
@@ -204,7 +158,7 @@
                                         <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-owners.owner border border-gray-300" wire:key="edLISNhftVa0ff2EGFT4.table.record.1.column.owners.owner">
                                             <div class="fi-ta-col-wrp">
                                                 <a href="https://cargahub.test/admin/clients/1/view" class="flex w-full disabled:pointer-events-none justify-start text-start">
-                                                    <div class="fi-ta-text grid w-full gap-y-1 px-3 py-4">
+                                                    <div class="fi-ta-text grid w-full gap-y-1 px-3 py-2">
                                                         <div class="flex ">
                                                             <div class="flex max-w-max" style="">
                                                                 <div class="fi-ta-text-item inline-flex items-center gap-1.5  ">
@@ -219,7 +173,7 @@
                                             </div>
                                         </td>
                                         <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-ta-actions-cell border border-gray-300">
-                                            <div class="whitespace-nowrap px-3 py-4">
+                                            <div class="whitespace-nowrap px-3 py-2">
                                                 <div class="fi-ta-actions flex shrink-0 items-center gap-3 justify-end">
                                                     <button class="fi-link group/link relative inline-flex items-center justify-center outline-none fi-size-sm fi-link-size-sm gap-1 fi-color-custom fi-color-primary fi-ac-action fi-ac-link-action" type="button" wire:loading.attr="disabled" wire:click="mountTableAction('verDetalle', '1')">
                                                         <svg style="--c-400:var(--primary-400);--c-600:var(--primary-600);" wire:loading.remove.delay.default="1" wire:target="mountTableAction('verDetalle', '1')" class="fi-link-icon h-4 w-4 text-custom-600 dark:text-custom-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
