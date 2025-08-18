@@ -20,12 +20,26 @@ class CoordinationMaritimePage extends Page
     protected static string $view = 'filament.resources.maritime-resource.pages.coordination-maritime-page';
 
     public Maritime $record;
-    public $varieties;
+    public $varieties, $clientsCoord, $coordinations;
 
     public function mount(Maritime $record): void
     {
+        
         $this->record = $record;
         $this->varieties = Variety::get();
+        $this->clientsCoord = CoordinationMaritime::where('maritime_id', $this->record->id)
+            ->join('clients', 'coordination_maritimes.client_id', '=', 'clients.id')
+            ->select('clients.id', 'clients.name')
+            ->distinct()
+            ->orderBy('clients.name', 'ASC')
+            ->get();
+        $this->coordinations = CoordinationMaritime::select('*')
+            ->where('maritime_id', '=', $this->record->id)
+            ->join('farms', 'coordination_maritimes.farm_id', '=', 'farms.id')
+            ->select('farms.name', 'coordination_maritimes.*')
+            ->orderBy('farms.name', 'ASC')
+            ->get();
+        //dd($this->coordinations);
     }
 
     public static function getRouteName(?string $panel = null): string
