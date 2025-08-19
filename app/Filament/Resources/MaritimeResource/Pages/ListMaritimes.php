@@ -10,6 +10,8 @@ class ListMaritimes extends ListRecords
 {
     protected static string $resource = MaritimeResource::class;
 
+    protected ?string $maxContentWidth = 'full';
+
     protected function getHeaderActions(): array
     {
         return [

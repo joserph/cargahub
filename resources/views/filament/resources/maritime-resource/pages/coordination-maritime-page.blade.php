@@ -7,13 +7,13 @@
                 <div x-load="" x-load-src="https://cargahub.test/js/filament/tables/components/table.js?v=3.3.4.0" x-data="table" class="fi-ta">
                     <div class="fi-ta-ctn divide-y divide-gray-200 overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-gray-950/5 dark:divide-white/10 dark:bg-gray-900 dark:ring-white/10">
                         <div class="fi-ta-content relative divide-y divide-gray-200 overflow-x-auto dark:divide-white/10 dark:border-t-white/10">
-                            <table class="fi-ta-table w-full table-auto divide-y divide-gray-200 text-start dark:divide-white/5">
+                            <table class="fi-ta-table w-full table-auto divide-y divide-gray-200 text-start dark:divide-white/5 text-[8px]">
                                 @foreach ($clientsCoord as $client)
                                 <thead class="divide-y divide-gray-200 dark:divide-white/5">
                                     <tr style="background-color: #A1C7E0">
                                         <th colspan="22" class="fi-ta-header-cell px-3 py-2 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-name border border-gray-300 text-center">
                                             <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-center">
-                                                <span class="fi-ta-header-cell-label text-sm font-semibold text-gray-950 dark:text-white">
+                                                <span class="fi-ta-header-cell-label text-[8px] font-semibold text-gray-950 dark:text-white">
                                                     {{ $client->name }}
                                                 </span>
                                             </span>
@@ -72,143 +72,143 @@
                                                 </label>
                                             </div>
                                         </th>
-                                        <th class="fi-ta-header-cell px-3 py-2 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-name border border-gray-300" style=";">
-                                            <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-start">
-                                                <span class="fi-ta-header-cell-label text-sm font-semibold text-gray-950 dark:text-white">
+                                        <th class="fi-ta-header-cell px-1 py-1 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-name border border-gray-300 text-center">
+                                            <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-center">
+                                                <span class="fi-ta-header-cell-label text-xs text-gray-950 dark:text-white" style="font-size: 10px">
                                                     Finca
                                                 </span>
                                             </span>
                                         </th>
-                                        <th class="fi-ta-header-cell px-3 py-2 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-marketers.name border border-gray-300" style=";">
-                                            <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-start">
-                                                <span class="fi-ta-header-cell-label text-sm font-semibold text-gray-950 dark:text-white">
+                                        <th class="fi-ta-header-cell px-1 py-1 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-name border border-gray-300 text-center">
+                                            <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-center">
+                                                <span class="fi-ta-header-cell-label text-xs font-semibold text-gray-950 dark:text-white" style="font-size: 10px">
                                                     HAWB
                                                 </span>
                                             </span>
                                         </th>
-                                        <th class="fi-ta-header-cell px-3 py-2 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-type-load border border-gray-300" style=";">
-                                            <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-start">
-                                                <span class="fi-ta-header-cell-label text-sm font-semibold text-gray-950 dark:text-white">
+                                        <th class="fi-ta-header-cell px-1 py-1 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-type-load border border-gray-300" style=";">
+                                            <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-center">
+                                                <span class="fi-ta-header-cell-label text-xs font-semibold text-gray-950 dark:text-white" style="font-size: 10px">
                                                     Variedad
                                                 </span>
                                             </span>
                                         </th>
-                                        <th class="fi-ta-header-cell px-3 py-2 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-status border border-gray-300" style=";">
-                                            <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-start">
-                                                <span class="fi-ta-header-cell-label text-sm font-semibold text-gray-950 dark:text-white">
+                                        <th class="fi-ta-header-cell px-1 py-1 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-status border border-gray-300" style=";">
+                                            <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-center">
+                                                <span class="fi-ta-header-cell-label text-xs font-semibold text-gray-950 dark:text-white" style="font-size: 10px">
                                                     PCS
                                                 </span>
                                             </span>
                                         </th>
-                                        <th class="fi-ta-header-cell px-3 py-2 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-owners.owner border border-gray-300" style=";">
-                                            <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-start">
-                                                <span class="fi-ta-header-cell-label text-sm font-semibold text-gray-950 dark:text-white">
+                                        <th class="fi-ta-header-cell px-1 py-1 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-owners.owner border border-gray-300" style=";">
+                                            <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-center">
+                                                <span class="fi-ta-header-cell-label text-xs font-semibold text-gray-950 dark:text-white" style="font-size: 10px">
                                                     FB
                                                 </span>
                                             </span>
                                         </th>
-                                        <th class="fi-ta-header-cell px-3 py-2 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-owners.owner border border-gray-300" style=";">
-                                            <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-start">
-                                                <span class="fi-ta-header-cell-label text-sm font-semibold text-gray-950 dark:text-white">
+                                        <th class="fi-ta-header-cell px-1 py-1 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-owners.owner border border-gray-300" style=";">
+                                            <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-center">
+                                                <span class="fi-ta-header-cell-label text-xs font-semibold text-gray-950 dark:text-white" style="font-size: 10px">
                                                     HB
                                                 </span>
                                             </span>
                                         </th>
-                                        <th class="fi-ta-header-cell px-3 py-2 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-owners.owner border border-gray-300" style=";">
-                                            <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-start">
-                                                <span class="fi-ta-header-cell-label text-sm font-semibold text-gray-950 dark:text-white">
+                                        <th class="fi-ta-header-cell px-1 py-1 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-owners.owner border border-gray-300" style=";">
+                                            <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-center">
+                                                <span class="fi-ta-header-cell-label text-xs font-semibold text-gray-950 dark:text-white" style="font-size: 10px">
                                                     QB
                                                 </span>
                                             </span>
                                         </th>
-                                        <th class="fi-ta-header-cell px-3 py-2 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-owners.owner border border-gray-300" style=";">
-                                            <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-start">
-                                                <span class="fi-ta-header-cell-label text-sm font-semibold text-gray-950 dark:text-white">
+                                        <th class="fi-ta-header-cell px-1 py-1 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-owners.owner border border-gray-300" style=";">
+                                            <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-center">
+                                                <span class="fi-ta-header-cell-label text-xs font-semibold text-gray-950 dark:text-white" style="font-size: 10px">
                                                     EB
                                                 </span>
                                             </span>
                                         </th>
-                                        <th class="fi-ta-header-cell px-3 py-2 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-owners.owner border border-gray-300" style=";">
-                                            <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-start">
-                                                <span class="fi-ta-header-cell-label text-sm font-semibold text-gray-950 dark:text-white">
+                                        <th class="fi-ta-header-cell px-1 py-1 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-owners.owner border border-gray-300" style=";">
+                                            <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-center">
+                                                <span class="fi-ta-header-cell-label text-xs font-semibold text-gray-950 dark:text-white" style="font-size: 10px">
                                                     DB
                                                 </span>
                                             </span>
                                         </th>
-                                        <th class="fi-ta-header-cell px-3 py-2 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-owners.owner border border-gray-300" style=";">
-                                            <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-start">
-                                                <span class="fi-ta-header-cell-label text-sm font-semibold text-gray-950 dark:text-white">
+                                        <th class="fi-ta-header-cell px-1 py-1 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-owners.owner border border-gray-300" style=";">
+                                            <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-center">
+                                                <span class="fi-ta-header-cell-label text-xs font-semibold text-gray-950 dark:text-white" style="font-size: 10px">
                                                     FULL
                                                 </span>
                                             </span>
                                         </th>
-                                        <th class="fi-ta-header-cell px-3 py-2 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-status border border-gray-300" style=";">
-                                            <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-start">
-                                                <span class="fi-ta-header-cell-label text-sm font-semibold text-gray-950 dark:text-white">
+                                        <th class="fi-ta-header-cell px-1 py-1 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-status border border-gray-300" style=";">
+                                            <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-center">
+                                                <span class="fi-ta-header-cell-label text-xs font-semibold text-gray-950 dark:text-white" style="font-size: 10px">
                                                     PCS
                                                 </span>
                                             </span>
                                         </th>
-                                        <th class="fi-ta-header-cell px-3 py-2 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-owners.owner border border-gray-300" style=";">
-                                            <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-start">
-                                                <span class="fi-ta-header-cell-label text-sm font-semibold text-gray-950 dark:text-white">
+                                        <th class="fi-ta-header-cell px-1 py-1 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-owners.owner border border-gray-300" style=";">
+                                            <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-center">
+                                                <span class="fi-ta-header-cell-label text-xs font-semibold text-gray-950 dark:text-white" style="font-size: 10px">
                                                     FB
                                                 </span>
                                             </span>
                                         </th>
-                                        <th class="fi-ta-header-cell px-3 py-2 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-owners.owner border border-gray-300" style=";">
-                                            <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-start">
-                                                <span class="fi-ta-header-cell-label text-sm font-semibold text-gray-950 dark:text-white">
+                                        <th class="fi-ta-header-cell px-1 py-1 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-owners.owner border border-gray-300" style=";">
+                                            <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-center">
+                                                <span class="fi-ta-header-cell-label text-xs font-semibold text-gray-950 dark:text-white" style="font-size: 10px">
                                                     HB
                                                 </span>
                                             </span>
                                         </th>
-                                        <th class="fi-ta-header-cell px-3 py-2 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-owners.owner border border-gray-300" style=";">
-                                            <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-start">
-                                                <span class="fi-ta-header-cell-label text-sm font-semibold text-gray-950 dark:text-white">
+                                        <th class="fi-ta-header-cell px-1 py-1 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-owners.owner border border-gray-300" style=";">
+                                            <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-center">
+                                                <span class="fi-ta-header-cell-label text-xs font-semibold text-gray-950 dark:text-white" style="font-size: 10px">
                                                     QB
                                                 </span>
                                             </span>
                                         </th>
-                                        <th class="fi-ta-header-cell px-3 py-2 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-owners.owner border border-gray-300" style=";">
-                                            <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-start">
-                                                <span class="fi-ta-header-cell-label text-sm font-semibold text-gray-950 dark:text-white">
+                                        <th class="fi-ta-header-cell px-1 py-1 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-owners.owner border border-gray-300" style=";">
+                                            <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-center">
+                                                <span class="fi-ta-header-cell-label text-xs font-semibold text-gray-950 dark:text-white" style="font-size: 10px">
                                                     EB
                                                 </span>
                                             </span>
                                         </th>
-                                        <th class="fi-ta-header-cell px-3 py-2 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-owners.owner border border-gray-300" style=";">
-                                            <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-start">
-                                                <span class="fi-ta-header-cell-label text-sm font-semibold text-gray-950 dark:text-white">
+                                        <th class="fi-ta-header-cell px-1 py-1 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-owners.owner border border-gray-300" style=";">
+                                            <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-center">
+                                                <span class="fi-ta-header-cell-label text-xs font-semibold text-gray-950 dark:text-white" style="font-size: 10px">
                                                     DB
                                                 </span>
                                             </span>
                                         </th>
-                                        <th class="fi-ta-header-cell px-3 py-2 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-owners.owner border border-gray-300" style=";">
-                                            <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-start">
-                                                <span class="fi-ta-header-cell-label text-sm font-semibold text-gray-950 dark:text-white">
+                                        <th class="fi-ta-header-cell px-1 py-1 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-owners.owner border border-gray-300" style=";">
+                                            <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-center">
+                                                <span class="fi-ta-header-cell-label text-xs font-semibold text-gray-950 dark:text-white" style="font-size: 10px">
                                                     FULL
                                                 </span>
                                             </span>
                                         </th>
 
-                                        <th class="fi-ta-header-cell px-3 py-2 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-owners.owner border border-gray-300" style=";">
-                                            <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-start">
-                                                <span class="fi-ta-header-cell-label text-sm font-semibold text-gray-950 dark:text-white">
+                                        <th class="fi-ta-header-cell px-1 py-1 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-owners.owner border border-gray-300" style=";">
+                                            <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-center">
+                                                <span class="fi-ta-header-cell-label text-xs font-semibold text-gray-950 dark:text-white" style="font-size: 10px">
                                                     Dev
                                                 </span>
                                             </span>
                                         </th>
-                                        <th class="fi-ta-header-cell px-3 py-2 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-owners.owner border border-gray-300" style=";">
-                                            <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-start">
-                                                <span class="fi-ta-header-cell-label text-sm font-semibold text-gray-950 dark:text-white">
+                                        <th class="fi-ta-header-cell px-1 py-1 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-owners.owner border border-gray-300" style=";">
+                                            <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-center">
+                                                <span class="fi-ta-header-cell-label text-xs font-semibold text-gray-950 dark:text-white" style="font-size: 10px">
                                                     Faltantes
                                                 </span>
                                             </span>
                                         </th>
-                                        <th class="fi-ta-header-cell px-3 py-2 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-owners.owner border border-gray-300" style=";">
-                                            <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-start">
-                                                <span class="fi-ta-header-cell-label text-sm font-semibold text-gray-950 dark:text-white">
+                                        <th class="fi-ta-header-cell px-1 py-1 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-owners.owner border border-gray-300" style=";">
+                                            <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-center">
+                                                <span class="fi-ta-header-cell-label text-xs font-semibold text-gray-950 dark:text-white" style="font-size: 10px">
                                                     Observación
                                                 </span>
                                             </span>
@@ -243,7 +243,7 @@
                                                                 <div class="flex ">
                                                                     <div class="flex max-w-max" style="">
                                                                         <div class="fi-ta-text-item inline-flex items-center gap-1.5  ">
-                                                                            <span class="fi-ta-text-item-label text-sm leading-6 text-gray-950 dark:text-white  " style="">
+                                                                            <span class="fi-ta-text-item-label leading-6 text-gray-950 dark:text-white" style="font-size: 10px">
                                                                                 {{ $item->farm->name }}
                                                                             </span>
                                                                         </div>
@@ -259,7 +259,7 @@
                                                             <div class="flex ">
                                                                 <div class="flex max-w-max" style="">
                                                                     <div class="fi-ta-text-item inline-flex items-center gap-1.5  ">
-                                                                        <span class="fi-ta-text-item-label text-sm leading-6 text-gray-950 dark:text-white  " style="">
+                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white  " style="">
                                                                             {{ $item->hawb }}
                                                                         </span>
                                                                     </div>
@@ -274,7 +274,7 @@
                                                             <div class="flex ">
                                                                 <div class="flex max-w-max" style="">
                                                                     <div class="fi-ta-text-item inline-flex items-center gap-1.5  ">
-                                                                        <span class="fi-ta-text-item-label text-sm leading-6 text-gray-950 dark:text-white  " style="">
+                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white  " style="">
                                                                             Pendiente
                                                                         </span>
                                                                     </div>
@@ -289,7 +289,7 @@
                                                             <div class="flex ">
                                                                 <div class="flex max-w-max" style="">
                                                                     <div class="fi-ta-text-item inline-flex items-center gap-1.5  ">
-                                                                        <span class="fi-ta-text-item-label text-sm leading-6 text-gray-950 dark:text-white  " style="">
+                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white  " style="">
                                                                             {{ $item->pieces }}
                                                                         </span>
                                                                     </div>
@@ -304,7 +304,7 @@
                                                             <div class="flex ">
                                                                 <div class="flex max-w-max" style="">
                                                                     <div class="fi-ta-text-item inline-flex items-center gap-1.5  ">
-                                                                        <span class="fi-ta-text-item-label text-sm leading-6 text-gray-950 dark:text-white  " style="">
+                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white  " style="">
                                                                             {{ $item->fb }}
                                                                         </span>
                                                                     </div>
@@ -319,7 +319,7 @@
                                                             <div class="flex ">
                                                                 <div class="flex max-w-max" style="">
                                                                     <div class="fi-ta-text-item inline-flex items-center gap-1.5  ">
-                                                                        <span class="fi-ta-text-item-label text-sm leading-6 text-gray-950 dark:text-white  " style="">
+                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white  " style="">
                                                                             {{ $item->hb }}
                                                                         </span>
                                                                     </div>
@@ -334,7 +334,7 @@
                                                             <div class="flex ">
                                                                 <div class="flex max-w-max" style="">
                                                                     <div class="fi-ta-text-item inline-flex items-center gap-1.5  ">
-                                                                        <span class="fi-ta-text-item-label text-sm leading-6 text-gray-950 dark:text-white  " style="">
+                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white  " style="">
                                                                             {{ $item->qb }}
                                                                         </span>
                                                                     </div>
@@ -349,7 +349,7 @@
                                                             <div class="flex ">
                                                                 <div class="flex max-w-max" style="">
                                                                     <div class="fi-ta-text-item inline-flex items-center gap-1.5  ">
-                                                                        <span class="fi-ta-text-item-label text-sm leading-6 text-gray-950 dark:text-white  " style="">
+                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white  " style="">
                                                                             {{ $item->eb }}
                                                                         </span>
                                                                     </div>
@@ -364,7 +364,7 @@
                                                             <div class="flex ">
                                                                 <div class="flex max-w-max" style="">
                                                                     <div class="fi-ta-text-item inline-flex items-center gap-1.5  ">
-                                                                        <span class="fi-ta-text-item-label text-sm leading-6 text-gray-950 dark:text-white  " style="">
+                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white  " style="">
                                                                             {{ $item->db }}
                                                                         </span>
                                                                     </div>
@@ -379,7 +379,7 @@
                                                             <div class="flex ">
                                                                 <div class="flex max-w-max" style="">
                                                                     <div class="fi-ta-text-item inline-flex items-center gap-1.5  ">
-                                                                        <span class="fi-ta-text-item-label text-sm leading-6 text-gray-950 dark:text-white  " style="">
+                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white  " style="">
                                                                             {{ $item->fulls }}
                                                                         </span>
                                                                     </div>
@@ -394,7 +394,7 @@
                                                             <div class="flex ">
                                                                 <div class="flex max-w-max" style="">
                                                                     <div class="fi-ta-text-item inline-flex items-center gap-1.5  ">
-                                                                        <span class="fi-ta-text-item-label text-sm leading-6 text-gray-950 dark:text-white  " style="">
+                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white  " style="">
                                                                             {{ $item->pieces_r }}
                                                                         </span>
                                                                     </div>
@@ -409,7 +409,7 @@
                                                             <div class="flex ">
                                                                 <div class="flex max-w-max" style="">
                                                                     <div class="fi-ta-text-item inline-flex items-center gap-1.5  ">
-                                                                        <span class="fi-ta-text-item-label text-sm leading-6 text-gray-950 dark:text-white  " style="">
+                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white  " style="">
                                                                             {{ $item->fb_r }}
                                                                         </span>
                                                                     </div>
@@ -424,7 +424,7 @@
                                                             <div class="flex ">
                                                                 <div class="flex max-w-max" style="">
                                                                     <div class="fi-ta-text-item inline-flex items-center gap-1.5  ">
-                                                                        <span class="fi-ta-text-item-label text-sm leading-6 text-gray-950 dark:text-white  " style="">
+                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white  " style="">
                                                                             {{ $item->hb_r }}
                                                                         </span>
                                                                     </div>
@@ -439,7 +439,7 @@
                                                             <div class="flex ">
                                                                 <div class="flex max-w-max" style="">
                                                                     <div class="fi-ta-text-item inline-flex items-center gap-1.5  ">
-                                                                        <span class="fi-ta-text-item-label text-sm leading-6 text-gray-950 dark:text-white  " style="">
+                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white  " style="">
                                                                             {{ $item->qb_r }}
                                                                         </span>
                                                                     </div>
@@ -454,7 +454,7 @@
                                                             <div class="flex ">
                                                                 <div class="flex max-w-max" style="">
                                                                     <div class="fi-ta-text-item inline-flex items-center gap-1.5  ">
-                                                                        <span class="fi-ta-text-item-label text-sm leading-6 text-gray-950 dark:text-white  " style="">
+                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white  " style="">
                                                                             {{ $item->eb_r }}
                                                                         </span>
                                                                     </div>
@@ -469,7 +469,7 @@
                                                             <div class="flex ">
                                                                 <div class="flex max-w-max" style="">
                                                                     <div class="fi-ta-text-item inline-flex items-center gap-1.5  ">
-                                                                        <span class="fi-ta-text-item-label text-sm leading-6 text-gray-950 dark:text-white  " style="">
+                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white  " style="">
                                                                             {{ $item->bd_r }}
                                                                         </span>
                                                                     </div>
@@ -484,7 +484,7 @@
                                                             <div class="flex ">
                                                                 <div class="flex max-w-max" style="">
                                                                     <div class="fi-ta-text-item inline-flex items-center gap-1.5  ">
-                                                                        <span class="fi-ta-text-item-label text-sm leading-6 text-gray-950 dark:text-white  " style="">
+                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white  " style="">
                                                                             {{ $item->fulls_r }}
                                                                         </span>
                                                                     </div>
@@ -499,7 +499,7 @@
                                                             <div class="flex ">
                                                                 <div class="flex max-w-max" style="">
                                                                     <div class="fi-ta-text-item inline-flex items-center gap-1.5  ">
-                                                                        <span class="fi-ta-text-item-label text-sm leading-6 text-gray-950 dark:text-white  " style="">
+                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white  " style="">
                                                                             {{ $item->returns }}
                                                                         </span>
                                                                     </div>
@@ -514,7 +514,7 @@
                                                             <div class="flex ">
                                                                 <div class="flex max-w-max" style="">
                                                                     <div class="fi-ta-text-item inline-flex items-center gap-1.5  ">
-                                                                        <span class="fi-ta-text-item-label text-sm leading-6 text-gray-950 dark:text-white  " style="">
+                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white  " style="">
                                                                             {{ $item->faltantes }}
                                                                         </span>
                                                                     </div>
@@ -529,7 +529,7 @@
                                                             <div class="flex ">
                                                                 <div class="flex max-w-max" style="">
                                                                     <div class="fi-ta-text-item inline-flex items-center gap-1.5  ">
-                                                                        <span class="fi-ta-text-item-label text-sm leading-6 text-gray-950 dark:text-white  " style="">
+                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white  " style="">
                                                                             {{ $item->observation }}
                                                                         </span>
                                                                     </div>

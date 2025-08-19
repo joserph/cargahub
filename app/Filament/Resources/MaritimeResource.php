@@ -23,6 +23,8 @@ class MaritimeResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    // protected static ?string $maxContentWidth = 'full';
+
     public static function form(Form $form): Form
     {
         return $form

@@ -18,6 +18,7 @@ class CoordinationMaritimePage extends Page
     protected static string $resource = MaritimeResource::class;
 
     protected static string $view = 'filament.resources.maritime-resource.pages.coordination-maritime-page';
+    protected ?string $maxContentWidth = 'full';
 
     public Maritime $record;
     public $varieties, $clientsCoord, $coordinations;
