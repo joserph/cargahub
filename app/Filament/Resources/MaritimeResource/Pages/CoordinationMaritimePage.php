@@ -21,25 +21,25 @@ class CoordinationMaritimePage extends Page
     protected ?string $maxContentWidth = 'full';
 
     public Maritime $record;
-    public $varieties, $clientsCoord, $coordinations;
+    public $varieties;
 
     public function mount(Maritime $record): void
     {
         
         $this->record = $record;
         $this->varieties = Variety::get();
-        $this->clientsCoord = CoordinationMaritime::where('maritime_id', $this->record->id)
-            ->join('clients', 'coordination_maritimes.client_id', '=', 'clients.id')
-            ->select('clients.id', 'clients.name')
-            ->distinct()
-            ->orderBy('clients.name', 'ASC')
-            ->get();
-        $this->coordinations = CoordinationMaritime::select('*')
-            ->where('maritime_id', '=', $this->record->id)
-            ->join('farms', 'coordination_maritimes.farm_id', '=', 'farms.id')
-            ->select('farms.name', 'coordination_maritimes.*')
-            ->orderBy('farms.name', 'ASC')
-            ->get();
+        // $this->clientsCoord = CoordinationMaritime::where('maritime_id', $this->record->id)
+        //     ->join('clients', 'coordination_maritimes.client_id', '=', 'clients.id')
+        //     ->select('clients.id', 'clients.name')
+        //     ->distinct()
+        //     ->orderBy('clients.name', 'ASC')
+        //     ->get();
+        // $this->coordinations = CoordinationMaritime::select('*')
+        //     ->where('maritime_id', '=', $this->record->id)
+        //     ->join('farms', 'coordination_maritimes.farm_id', '=', 'farms.id')
+        //     ->select('farms.name', 'coordination_maritimes.*')
+        //     ->orderBy('farms.name', 'ASC')
+        //     ->get();
         //dd($this->coordinations);
     }
 
@@ -62,13 +62,14 @@ class CoordinationMaritimePage extends Page
                 ->action(function (array $data) {
                     // Aquí puedes guardar la información
                     
-                    \App\Models\CoordinationMaritime::create([
+                    CoordinationMaritime::create([
                         'maritime_id' => $this->record->id,
                         ...$data,
                     ]);
 
                     $this->dispatch('notify', type: 'success', message: '¡Coordinación guardada!');
                 })
+                ->after(fn () => $this->dispatch('$refresh'))
                 ->modalHeading('Item Coordinación Marítima')
                 ->modalWidth('7xl'),
         ];
@@ -81,6 +82,26 @@ class CoordinationMaritimePage extends Page
             ->orderBy('id', 'desc')
             ->get()
             ->groupBy(fn($item) => $item->client->name ?? 'Sin cliente');
+    }
+
+    public function getClientsCoordProperty()
+    {
+        return CoordinationMaritime::where('maritime_id', $this->record->id)
+            ->join('clients', 'coordination_maritimes.client_id', '=', 'clients.id')
+            ->select('clients.id', 'clients.name')
+            ->distinct()
+            ->orderBy('clients.name', 'ASC')
+            ->get();
+    }
+
+    public function getCoordinationsProperty()
+    {
+        return CoordinationMaritime::select('*')
+            ->where('maritime_id', '=', $this->record->id)
+            ->join('farms', 'coordination_maritimes.farm_id', '=', 'farms.id')
+            ->select('farms.name', 'coordination_maritimes.*')
+            ->orderBy('farms.name', 'ASC')
+            ->get();
     }
 
 
