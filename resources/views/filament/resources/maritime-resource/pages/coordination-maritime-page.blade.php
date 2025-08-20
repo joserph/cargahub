@@ -28,17 +28,15 @@
                                                 </span>
                                             </span>
                                         </th>
-
                                         <!-- Segundo th (con fondo verde) -->
-                                        <th colspan="7" class="fi-ta-header-cell px-3 py-1 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-name border border-gray-300 text-center" style="background-color: #8AA6A3;">
+                                        <th colspan="{{ ($totalTypeBox + 2) }}" class="fi-ta-header-cell px-3 py-1 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-name border border-gray-300 text-center" style="background-color: #8AA6A3;">
                                             <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-center">
                                                 <span class="fi-ta-header-cell-label text-sm font-semibold text-gray-950 dark:text-white">
                                                     Coordinado
                                                 </span>
                                             </span>
                                         </th>
-                                        <th colspan="7" 
-                                            class="fi-ta-header-cell px-3 py-1 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-name border border-gray-300 text-center" style="background-color: #04BF9D;">
+                                        <th colspan="{{ ($totalTypeBox + 2) }}" class="fi-ta-header-cell px-3 py-1 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-name border border-gray-300 text-center" style="background-color: #04BF9D;">
                                             <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-center">
                                                 <span class="fi-ta-header-cell-label text-sm font-semibold text-gray-950 dark:text-white">
                                                     Recibido
@@ -100,13 +98,16 @@
                                                 </span>
                                             </span>
                                         </th>
-                                        <th class="fi-ta-header-cell px-1 py-1 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-owners.owner border border-gray-300" style=";">
-                                            <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-center">
-                                                <span class="fi-ta-header-cell-label text-xs font-semibold text-gray-950 dark:text-white" style="font-size: 10px">
-                                                    FB
+                                        @unless($record->fb_status == 0)
+                                            <th class="fi-ta-header-cell px-1 py-1 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-owners.owner border border-gray-300" style=";">
+                                                <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-center">
+                                                    <span class="fi-ta-header-cell-label text-xs font-semibold text-gray-950 dark:text-white" style="font-size: 10px">
+                                                        FB
+                                                    </span>
                                                 </span>
-                                            </span>
-                                        </th>
+                                            </th>
+                                        @endunless
+                                        @unless($record->hb_status == 0)
                                         <th class="fi-ta-header-cell px-1 py-1 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-owners.owner border border-gray-300" style=";">
                                             <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-center">
                                                 <span class="fi-ta-header-cell-label text-xs font-semibold text-gray-950 dark:text-white" style="font-size: 10px">
@@ -114,6 +115,8 @@
                                                 </span>
                                             </span>
                                         </th>
+                                        @endunless
+                                        @unless($record->qb_status == 0)
                                         <th class="fi-ta-header-cell px-1 py-1 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-owners.owner border border-gray-300" style=";">
                                             <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-center">
                                                 <span class="fi-ta-header-cell-label text-xs font-semibold text-gray-950 dark:text-white" style="font-size: 10px">
@@ -121,6 +124,8 @@
                                                 </span>
                                             </span>
                                         </th>
+                                        @endunless
+                                        @unless($record->eb_status == 0)
                                         <th class="fi-ta-header-cell px-1 py-1 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-owners.owner border border-gray-300" style=";">
                                             <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-center">
                                                 <span class="fi-ta-header-cell-label text-xs font-semibold text-gray-950 dark:text-white" style="font-size: 10px">
@@ -128,6 +133,8 @@
                                                 </span>
                                             </span>
                                         </th>
+                                        @endunless
+                                        @unless($record->db_status == 0)
                                         <th class="fi-ta-header-cell px-1 py-1 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-owners.owner border border-gray-300" style=";">
                                             <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-center">
                                                 <span class="fi-ta-header-cell-label text-xs font-semibold text-gray-950 dark:text-white" style="font-size: 10px">
@@ -135,6 +142,7 @@
                                                 </span>
                                             </span>
                                         </th>
+                                        @endunless
                                         <th class="fi-ta-header-cell px-1 py-1 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-owners.owner border border-gray-300" style=";">
                                             <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-center">
                                                 <span class="fi-ta-header-cell-label text-xs font-semibold text-gray-950 dark:text-white" style="font-size: 10px">
@@ -149,6 +157,7 @@
                                                 </span>
                                             </span>
                                         </th>
+                                        @unless($record->fb_status == 0)
                                         <th class="fi-ta-header-cell px-1 py-1 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-owners.owner border border-gray-300" style=";">
                                             <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-center">
                                                 <span class="fi-ta-header-cell-label text-xs font-semibold text-gray-950 dark:text-white" style="font-size: 10px">
@@ -156,6 +165,8 @@
                                                 </span>
                                             </span>
                                         </th>
+                                        @endunless
+                                        @unless($record->hb_status == 0)
                                         <th class="fi-ta-header-cell px-1 py-1 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-owners.owner border border-gray-300" style=";">
                                             <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-center">
                                                 <span class="fi-ta-header-cell-label text-xs font-semibold text-gray-950 dark:text-white" style="font-size: 10px">
@@ -163,6 +174,8 @@
                                                 </span>
                                             </span>
                                         </th>
+                                        @endunless
+                                        @unless($record->qb_status == 0)
                                         <th class="fi-ta-header-cell px-1 py-1 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-owners.owner border border-gray-300" style=";">
                                             <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-center">
                                                 <span class="fi-ta-header-cell-label text-xs font-semibold text-gray-950 dark:text-white" style="font-size: 10px">
@@ -170,6 +183,8 @@
                                                 </span>
                                             </span>
                                         </th>
+                                        @endunless
+                                        @unless($record->eb_status == 0)
                                         <th class="fi-ta-header-cell px-1 py-1 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-owners.owner border border-gray-300" style=";">
                                             <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-center">
                                                 <span class="fi-ta-header-cell-label text-xs font-semibold text-gray-950 dark:text-white" style="font-size: 10px">
@@ -177,6 +192,8 @@
                                                 </span>
                                             </span>
                                         </th>
+                                        @endunless
+                                        @unless($record->db_status == 0)
                                         <th class="fi-ta-header-cell px-1 py-1 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-owners.owner border border-gray-300" style=";">
                                             <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-center">
                                                 <span class="fi-ta-header-cell-label text-xs font-semibold text-gray-950 dark:text-white" style="font-size: 10px">
@@ -184,6 +201,7 @@
                                                 </span>
                                             </span>
                                         </th>
+                                        @endunless
                                         <th class="fi-ta-header-cell px-1 py-1 sm:first-of-type:ps-6 sm:last-of-type:pe-6 fi-table-header-cell-owners.owner border border-gray-300" style=";">
                                             <span class="group flex w-full items-center gap-x-1 whitespace-nowrap justify-center">
                                                 <span class="fi-ta-header-cell-label text-xs font-semibold text-gray-950 dark:text-white" style="font-size: 10px">
@@ -298,6 +316,7 @@
                                                         </div>
                                                     </div>
                                                 </td>
+                                                @unless($record->fb_status == 0)
                                                 <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-owners.owner border border-gray-300" wire:key="edLISNhftVa0ff2EGFT4.table.record.1.column.owners.owner">
                                                     <div class="fi-ta-col-wrp">
                                                         <div class="fi-ta-text grid w-full gap-y-1 px-3 py-2">
@@ -313,6 +332,8 @@
                                                         </div>
                                                     </div>
                                                 </td>
+                                                @endunless
+                                                @unless($record->hb_status == 0)
                                                 <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-owners.owner border border-gray-300" wire:key="edLISNhftVa0ff2EGFT4.table.record.1.column.owners.owner">
                                                     <div class="fi-ta-col-wrp">
                                                         <div class="fi-ta-text grid w-full gap-y-1 px-3 py-2">
@@ -328,6 +349,8 @@
                                                         </div>
                                                     </div>
                                                 </td>
+                                                @endunless
+                                                @unless($record->qb_status == 0)
                                                 <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-owners.owner border border-gray-300" wire:key="edLISNhftVa0ff2EGFT4.table.record.1.column.owners.owner">
                                                     <div class="fi-ta-col-wrp">
                                                         <div class="fi-ta-text grid w-full gap-y-1 px-3 py-2">
@@ -343,6 +366,8 @@
                                                         </div>
                                                     </div>
                                                 </td>
+                                                @endunless
+                                                @unless($record->eb_status == 0)
                                                 <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-owners.owner border border-gray-300" wire:key="edLISNhftVa0ff2EGFT4.table.record.1.column.owners.owner">
                                                     <div class="fi-ta-col-wrp">
                                                         <div class="fi-ta-text grid w-full gap-y-1 px-3 py-2">
@@ -358,6 +383,8 @@
                                                         </div>
                                                     </div>
                                                 </td>
+                                                @endunless
+                                                @unless($record->db_status == 0)
                                                 <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-owners.owner border border-gray-300" wire:key="edLISNhftVa0ff2EGFT4.table.record.1.column.owners.owner">
                                                     <div class="fi-ta-col-wrp">
                                                         <div class="fi-ta-text grid w-full gap-y-1 px-3 py-2">
@@ -373,6 +400,7 @@
                                                         </div>
                                                     </div>
                                                 </td>
+                                                @endunless
                                                 <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-owners.owner border border-gray-300" wire:key="edLISNhftVa0ff2EGFT4.table.record.1.column.owners.owner">
                                                     <div class="fi-ta-col-wrp">
                                                         <div class="fi-ta-text grid w-full gap-y-1 px-3 py-2">
@@ -403,6 +431,7 @@
                                                         </div>
                                                     </div>
                                                 </td>
+                                                @unless($record->fb_status == 0)
                                                 <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-owners.owner border border-gray-300" wire:key="edLISNhftVa0ff2EGFT4.table.record.1.column.owners.owner">
                                                     <div class="fi-ta-col-wrp">
                                                         <div class="fi-ta-text grid w-full gap-y-1 px-3 py-2">
@@ -418,6 +447,8 @@
                                                         </div>
                                                     </div>
                                                 </td>
+                                                @endunless
+                                                @unless($record->hb_status == 0)
                                                 <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-owners.owner border border-gray-300" wire:key="edLISNhftVa0ff2EGFT4.table.record.1.column.owners.owner">
                                                     <div class="fi-ta-col-wrp">
                                                         <div class="fi-ta-text grid w-full gap-y-1 px-3 py-2">
@@ -433,6 +464,8 @@
                                                         </div>
                                                     </div>
                                                 </td>
+                                                @endunless
+                                                @unless($record->qb_status == 0)
                                                 <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-owners.owner border border-gray-300" wire:key="edLISNhftVa0ff2EGFT4.table.record.1.column.owners.owner">
                                                     <div class="fi-ta-col-wrp">
                                                         <div class="fi-ta-text grid w-full gap-y-1 px-3 py-2">
@@ -448,6 +481,8 @@
                                                         </div>
                                                     </div>
                                                 </td>
+                                                @endunless
+                                                @unless($record->eb_status == 0)
                                                 <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-owners.owner border border-gray-300" wire:key="edLISNhftVa0ff2EGFT4.table.record.1.column.owners.owner">
                                                     <div class="fi-ta-col-wrp">
                                                         <div class="fi-ta-text grid w-full gap-y-1 px-3 py-2">
@@ -463,6 +498,8 @@
                                                         </div>
                                                     </div>
                                                 </td>
+                                                @endunless
+                                                @unless($record->db_status == 0)
                                                 <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-owners.owner border border-gray-300" wire:key="edLISNhftVa0ff2EGFT4.table.record.1.column.owners.owner">
                                                     <div class="fi-ta-col-wrp">
                                                         <div class="fi-ta-text grid w-full gap-y-1 px-3 py-2">
@@ -478,6 +515,7 @@
                                                         </div>
                                                     </div>
                                                 </td>
+                                                @endunless
                                                 <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-owners.owner border border-gray-300" wire:key="edLISNhftVa0ff2EGFT4.table.record.1.column.owners.owner">
                                                     <div class="fi-ta-col-wrp">
                                                         <div class="fi-ta-text grid w-full gap-y-1 px-3 py-2">

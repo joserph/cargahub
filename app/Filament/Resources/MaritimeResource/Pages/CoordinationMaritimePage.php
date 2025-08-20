@@ -21,13 +21,15 @@ class CoordinationMaritimePage extends Page
     protected ?string $maxContentWidth = 'full';
 
     public Maritime $record;
-    public $varieties;
+    public $varieties, $totalTypeBox;
 
     public function mount(Maritime $record): void
     {
         
         $this->record = $record;
         $this->varieties = Variety::get();
+        $this->totalTypeBox = Maritime::selectRaw('SUM(fb_status + hb_status + qb_status + eb_status + db_status) as total')->value('total');
+
         // $this->clientsCoord = CoordinationMaritime::where('maritime_id', $this->record->id)
         //     ->join('clients', 'coordination_maritimes.client_id', '=', 'clients.id')
         //     ->select('clients.id', 'clients.name')
@@ -40,7 +42,7 @@ class CoordinationMaritimePage extends Page
         //     ->select('farms.name', 'coordination_maritimes.*')
         //     ->orderBy('farms.name', 'ASC')
         //     ->get();
-        //dd($this->coordinations);
+        //dd($this->totalTypeBox);
     }
 
     public static function getRouteName(?string $panel = null): string
@@ -103,6 +105,20 @@ class CoordinationMaritimePage extends Page
             ->orderBy('farms.name', 'ASC')
             ->get();
     }
+
+    public function getHbTotalsProperty()
+    {
+        return CoordinationMaritime::query()
+            ->where('maritime_id', $this->record->id)
+            ->selectRaw('client_id, SUM(hb) as total_hb')
+            ->groupBy('client_id')
+            ->with('client:id,name') // para evitar N+1
+            ->get()
+            ->mapWithKeys(fn ($row) => [
+                $row->client->name => $row->total_hb,
+            ]);
+    }
+
 
 
 }
