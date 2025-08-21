@@ -1,16 +1,5 @@
 <x-filament::page>
     <div class="overflow-x-auto">
-        {{-- @foreach ($this->hbTotals as $cliente => $item)
-            <h1>{{ $cliente }} - {{ $item }}</h1>
-        @endforeach --}}
-        @foreach ($this->hbTotals as $clientName => $totals)
-            <tr>
-                <td>{{ $clientName }}</td>
-                <td>{{ $totals['hb'] }}</td>
-                <td>{{ $totals['qb'] }}</td>
-            </tr>
-        @endforeach
-
         <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
         <div class="grid flex-1 auto-cols-fr gap-y-8">
@@ -250,11 +239,7 @@
                                 <tbody class="divide-y divide-gray-200 whitespace-nowrap dark:divide-white/5">
                                     @foreach($this->coordinations as $item)
                                         @if($client->id == $item->client_id)
-                                            <tr x-bind:class="{
-                                                    'hidden': false &amp;&amp; isGroupCollapsed(null),
-                                                    'bg-gray-50 dark:bg-white/5': isRecordSelected('1'),
-                                                    '[&amp;&gt;*:first-child]:relative [&amp;&gt;*:first-child]:before:absolute [&amp;&gt;*:first-child]:before:start-0 [&amp;&gt;*:first-child]:before:inset-y-0 [&amp;&gt;*:first-child]:before:w-0.5 [&amp;&gt;*:first-child]:before:bg-primary-600 [&amp;&gt;*:first-child]:dark:before:bg-primary-500': isRecordSelected('1'),
-                                                }" class="fi-ta-row [@media(hover:hover)]:transition [@media(hover:hover)]:duration-75 hover:bg-gray-50 dark:hover:bg-white/5" wire:key="edLISNhftVa0ff2EGFT4.table.records.1">
+                                            <tr class="fi-ta-row [@media(hover:hover)]:transition [@media(hover:hover)]:duration-75 hover:bg-gray-50 dark:hover:bg-white/5">
                                                 <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-ta-selection-cell w-1 border border-gray-300">
                                                     <div class="px-3 py-2">
                                                         <label class="flex">
@@ -620,26 +605,52 @@
                                                     </div>
                                                 </td>
                                             </tr>
-                                            
                                         @endif
-                                        
                                     @endforeach
-                                    {{-- <tr>
-                                                <th colspan="5">Total</th>
-                                                <th>{{ $this->hbTotals[$client->id]['hb'] ?? 0 }}</th>
-                                                <th>{{ $this->hbTotals[$client->id]['qb'] ?? 0 }}</th>
-                                            </tr> --}}
-                                        @foreach ($this->hbTotals as $clientId => $totals)
-                                        <h1>{{ $client->id }} - {{ $clientId }}</h1>
-                                            @if ($client->id == $clientId)
-                                                
-                                                <tr>
-                                                    <td colspan="5">{{ $client->name }}</td>
-                                                    <td>{{ $totals['hb'] }}</td>
-                                                    <td>{{ $totals['qb'] }}</td>
-                                                </tr>
-                                            @endif
-                                        @endforeach
+                                    @foreach ($this->hbTotals as $clientId => $totals)
+                                        @if ($client->id == $clientId)
+                                            <tr class="fi-ta-row [@media(hover:hover)]:transition [@media(hover:hover)]:duration-75 hover:bg-gray-50 dark:hover:bg-white/5">
+                                                <td colspan="4">{{ $client->name }}</td>
+                                                <td>{{ $totals['pieces'] }}</td>
+                                                @unless($record->fb_status == 0)
+                                                <td>{{ $totals['fb'] }}</td>
+                                                @endunless
+                                                @unless($record->hb_status == 0)
+                                                <td>{{ $totals['hb'] }}</td>
+                                                @endunless
+                                                @unless($record->qb_status == 0)
+                                                <td>{{ $totals['qb'] }}</td>
+                                                @endunless
+                                                @unless($record->eb_status == 0)
+                                                <td>{{ $totals['eb'] }}</td>
+                                                @endunless
+                                                @unless($record->db_status == 0)
+                                                <td>{{ $totals['db'] }}</td>
+                                                @endunless
+                                                <td>{{ $totals['fulls'] }}</td>
+                                                <td>{{ $totals['pieces_r'] }}</td>
+                                                @unless($record->fb_status == 0)
+                                                <td>{{ $totals['fb_r'] }}</td>
+                                                @endunless
+                                                @unless($record->hb_status == 0)
+                                                <td>{{ $totals['hb_r'] }}</td>
+                                                @endunless
+                                                @unless($record->qb_status == 0)
+                                                <td>{{ $totals['qb_r'] }}</td>
+                                                @endunless
+                                                @unless($record->eb_status == 0)
+                                                <td>{{ $totals['eb_r'] }}</td>
+                                                @endunless
+                                                @unless($record->db_status == 0)
+                                                <td>{{ $totals['db_r'] }}</td>
+                                                @endunless
+                                                <td>{{ $totals['fulls_r'] }}</td>
+                                            </tr>
+                                        @endif
+                                    @endforeach
+                                    <tr>
+                                        <th colspan="8">-------</th>
+                                    </tr>
                                 </tbody>
                                 @endforeach
                             </table>

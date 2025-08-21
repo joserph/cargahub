@@ -111,14 +111,40 @@ class CoordinationMaritimePage extends Page
         return CoordinationMaritime::query()
             ->where('maritime_id', $this->record->id)
             ->join('clients', 'clients.id', '=', 'coordination_maritimes.client_id')
-            ->selectRaw('clients.id as client_id, SUM(hb) as total_hb, SUM(qb) as total_qb')
+            ->selectRaw('clients.id as client_id, 
+                SUM(pieces) as total_pieces,
+                SUM(fb) as total_fb, 
+                SUM(hb) as total_hb, 
+                SUM(qb) as total_qb, 
+                SUM(eb) as total_eb, 
+                SUM(db) as total_db,
+                SUM(fulls) as total_fulls,
+                SUM(pieces_r) as total_pieces_r,
+                SUM(fb_r) as total_fb_r, 
+                SUM(hb_r) as total_hb_r, 
+                SUM(qb_r) as total_qb_r, 
+                SUM(eb_r) as total_eb_r, 
+                SUM(db_r) as total_db_r,
+                SUM(fulls_r) as total_fulls_r')
             ->groupBy('clients.id', 'clients.name')
             ->orderBy('clients.name')
             ->get()
             ->mapWithKeys(fn ($row) => [
                 $row->client_id => [
-                    'hb' => $row->total_hb,
-                    'qb' => $row->total_qb,
+                    'pieces'    => $row->total_pieces,
+                    'fb'        => $row->total_fb,
+                    'hb'        => $row->total_hb,
+                    'qb'        => $row->total_qb,
+                    'eb'        => $row->total_eb,
+                    'db'        => $row->total_db,
+                    'fulls'     => $row->total_fulls,
+                    'pieces_r'    => $row->total_pieces_r,
+                    'fb_r'        => $row->total_fb_r,
+                    'hb_r'        => $row->total_hb_r,
+                    'qb_r'        => $row->total_qb_r,
+                    'eb_r'        => $row->total_eb_r,
+                    'db_r'        => $row->total_db_r,
+                    'fulls_r'     => $row->total_fulls_r
                 ],
             ]);
     }
