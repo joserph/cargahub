@@ -1,5 +1,16 @@
 <x-filament::page>
     <div class="overflow-x-auto">
+        {{-- @foreach ($this->hbTotals as $cliente => $item)
+            <h1>{{ $cliente }} - {{ $item }}</h1>
+        @endforeach --}}
+        @foreach ($this->hbTotals as $clientName => $totals)
+            <tr>
+                <td>{{ $clientName }}</td>
+                <td>{{ $totals['hb'] }}</td>
+                <td>{{ $totals['qb'] }}</td>
+            </tr>
+        @endforeach
+
         <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
         <div class="grid flex-1 auto-cols-fr gap-y-8">
@@ -609,8 +620,26 @@
                                                     </div>
                                                 </td>
                                             </tr>
+                                            
                                         @endif
+                                        
                                     @endforeach
+                                    {{-- <tr>
+                                                <th colspan="5">Total</th>
+                                                <th>{{ $this->hbTotals[$client->id]['hb'] ?? 0 }}</th>
+                                                <th>{{ $this->hbTotals[$client->id]['qb'] ?? 0 }}</th>
+                                            </tr> --}}
+                                        @foreach ($this->hbTotals as $clientId => $totals)
+                                        <h1>{{ $client->id }} - {{ $clientId }}</h1>
+                                            @if ($client->id == $clientId)
+                                                
+                                                <tr>
+                                                    <td colspan="5">{{ $client->name }}</td>
+                                                    <td>{{ $totals['hb'] }}</td>
+                                                    <td>{{ $totals['qb'] }}</td>
+                                                </tr>
+                                            @endif
+                                        @endforeach
                                 </tbody>
                                 @endforeach
                             </table>

@@ -21,7 +21,7 @@ class CoordinationMaritimePage extends Page
     protected ?string $maxContentWidth = 'full';
 
     public Maritime $record;
-    public $varieties, $totalTypeBox;
+    public $varieties, $totalTypeBox, $hb;
 
     public function mount(Maritime $record): void
     {
@@ -110,14 +110,20 @@ class CoordinationMaritimePage extends Page
     {
         return CoordinationMaritime::query()
             ->where('maritime_id', $this->record->id)
-            ->selectRaw('client_id, SUM(hb) as total_hb')
-            ->groupBy('client_id')
-            ->with('client:id,name') // para evitar N+1
+            ->join('clients', 'clients.id', '=', 'coordination_maritimes.client_id')
+            ->selectRaw('clients.id as client_id, SUM(hb) as total_hb, SUM(qb) as total_qb')
+            ->groupBy('clients.id', 'clients.name')
+            ->orderBy('clients.name')
             ->get()
             ->mapWithKeys(fn ($row) => [
-                $row->client->name => $row->total_hb,
+                $row->client_id => [
+                    'hb' => $row->total_hb,
+                    'qb' => $row->total_qb,
+                ],
             ]);
     }
+
+
 
 
 
