@@ -250,7 +250,7 @@
                                                         </label>
                                                     </div>
                                                 </td>
-                                                <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-name border border-gray-300" wire:key="edLISNhftVa0ff2EGFT4.table.record.1.column.name">
+                                                <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-name border border-gray-300">
                                                     <div class="fi-ta-col-wrp">
                                                         <a href="https://cargahub.test/admin/clients/1/view" class="flex w-full disabled:pointer-events-none justify-start text-start">
                                                             <div class="fi-ta-text grid w-full gap-y-1 px-3 py-2">
@@ -267,13 +267,13 @@
                                                         </a>
                                                     </div>
                                                 </td>
-                                                <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-marketers.name border border-gray-300" wire:key="edLISNhftVa0ff2EGFT4.table.record.1.column.marketers.name">
+                                                <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-marketers.name border border-gray-300">
                                                     <div class="fi-ta-col-wrp">
                                                         <div class="fi-ta-text grid w-full gap-y-1 px-3 py-2">
-                                                            <div class="flex ">
-                                                                <div class="flex max-w-max" style="">
-                                                                    <div class="fi-ta-text-item inline-flex items-center gap-1.5  ">
-                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white  " style="font-size: 10px">
+                                                            <div class="flex justify-center">
+                                                                <div class="flex max-w-max justify-center" style="">
+                                                                    <div class="fi-ta-text-item inline-flex items-center gap-1.5 justify-center">
+                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white justify-center" style="font-size: 10px">
                                                                             {{ $item->hawb }}
                                                                         </span>
                                                                     </div>
@@ -282,10 +282,10 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-type-load border border-gray-300" wire:key="edLISNhftVa0ff2EGFT4.table.record.1.column.type_load">
+                                                <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-type-load border border-gray-300">
                                                     <div class="fi-ta-col-wrp">
                                                         <div class="fi-ta-text grid w-full gap-y-1 px-3 py-2">
-                                                            <div class="flex ">
+                                                            <div class="flex justify-center">
                                                                 <div class="flex max-w-max" style="">
                                                                     <div class="fi-ta-text-item inline-flex items-center gap-1.5  ">
                                                                         <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white  " style="font-size: 10px">
@@ -297,13 +297,13 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-status border border-gray-300" wire:key="edLISNhftVa0ff2EGFT4.table.record.1.column.status">
+                                                <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 border border-gray-300">
                                                     <div class="fi-ta-col-wrp">
-                                                        <div class="fi-ta-icon flex gap-1.5 px-3 py-2">
-                                                            <div class="flex ">
-                                                                <div class="flex max-w-max" style="">
-                                                                    <div class="fi-ta-text-item inline-flex items-center gap-1.5  ">
-                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white  " style="">
+                                                        <div class="fi-ta-text grid w-full gap-y-1 px-3 py-2">
+                                                            <div class="flex justify-center">
+                                                                <div class="flex max-w-max justify-center" style="">
+                                                                    <div class="fi-ta-text-item inline-flex items-center gap-1.5 justify-center">
+                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white" style="">
                                                                             {{ $item->pieces }}
                                                                         </span>
                                                                     </div>
@@ -313,13 +313,13 @@
                                                     </div>
                                                 </td>
                                                 @unless($record->fb_status == 0)
-                                                <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-owners.owner border border-gray-300" wire:key="edLISNhftVa0ff2EGFT4.table.record.1.column.owners.owner">
+                                                <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 border border-gray-300">
                                                     <div class="fi-ta-col-wrp">
                                                         <div class="fi-ta-text grid w-full gap-y-1 px-3 py-2">
-                                                            <div class="flex ">
-                                                                <div class="flex max-w-max" style="">
-                                                                    <div class="fi-ta-text-item inline-flex items-center gap-1.5  ">
-                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white  " style="">
+                                                            <div class="flex justify-center">
+                                                                <div class="flex max-w-max justify-center" style="">
+                                                                    <div class="fi-ta-text-item inline-flex items-center gap-1.5 justify-center">
+                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white" style="">
                                                                             {{ $item->fb }}
                                                                         </span>
                                                                     </div>
@@ -330,13 +330,13 @@
                                                 </td>
                                                 @endunless
                                                 @unless($record->hb_status == 0)
-                                                <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-owners.owner border border-gray-300" wire:key="edLISNhftVa0ff2EGFT4.table.record.1.column.owners.owner">
+                                                <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 border border-gray-300">
                                                     <div class="fi-ta-col-wrp">
                                                         <div class="fi-ta-text grid w-full gap-y-1 px-3 py-2">
-                                                            <div class="flex ">
-                                                                <div class="flex max-w-max" style="">
-                                                                    <div class="fi-ta-text-item inline-flex items-center gap-1.5  ">
-                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white  " style="">
+                                                            <div class="flex justify-center">
+                                                                <div class="flex max-w-max justify-center" style="">
+                                                                    <div class="fi-ta-text-item inline-flex items-center gap-1.5 justify-center">
+                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white" style="">
                                                                             {{ $item->hb }}
                                                                         </span>
                                                                     </div>
@@ -347,13 +347,13 @@
                                                 </td>
                                                 @endunless
                                                 @unless($record->qb_status == 0)
-                                                <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-owners.owner border border-gray-300" wire:key="edLISNhftVa0ff2EGFT4.table.record.1.column.owners.owner">
+                                                <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 border border-gray-300">
                                                     <div class="fi-ta-col-wrp">
                                                         <div class="fi-ta-text grid w-full gap-y-1 px-3 py-2">
-                                                            <div class="flex ">
-                                                                <div class="flex max-w-max" style="">
-                                                                    <div class="fi-ta-text-item inline-flex items-center gap-1.5  ">
-                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white  " style="">
+                                                            <div class="flex justify-center">
+                                                                <div class="flex max-w-max justify-center" style="">
+                                                                    <div class="fi-ta-text-item inline-flex items-center gap-1.5 justify-center">
+                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white" style="">
                                                                             {{ $item->qb }}
                                                                         </span>
                                                                     </div>
@@ -364,13 +364,13 @@
                                                 </td>
                                                 @endunless
                                                 @unless($record->eb_status == 0)
-                                                <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-owners.owner border border-gray-300" wire:key="edLISNhftVa0ff2EGFT4.table.record.1.column.owners.owner">
+                                                <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 border border-gray-300">
                                                     <div class="fi-ta-col-wrp">
                                                         <div class="fi-ta-text grid w-full gap-y-1 px-3 py-2">
-                                                            <div class="flex ">
-                                                                <div class="flex max-w-max" style="">
-                                                                    <div class="fi-ta-text-item inline-flex items-center gap-1.5  ">
-                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white  " style="">
+                                                            <div class="flex justify-center">
+                                                                <div class="flex max-w-max justify-center" style="">
+                                                                    <div class="fi-ta-text-item inline-flex items-center gap-1.5 justify-center">
+                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white" style="">
                                                                             {{ $item->eb }}
                                                                         </span>
                                                                     </div>
@@ -381,13 +381,13 @@
                                                 </td>
                                                 @endunless
                                                 @unless($record->db_status == 0)
-                                                <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-owners.owner border border-gray-300" wire:key="edLISNhftVa0ff2EGFT4.table.record.1.column.owners.owner">
+                                                <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 border border-gray-300">
                                                     <div class="fi-ta-col-wrp">
                                                         <div class="fi-ta-text grid w-full gap-y-1 px-3 py-2">
-                                                            <div class="flex ">
-                                                                <div class="flex max-w-max" style="">
-                                                                    <div class="fi-ta-text-item inline-flex items-center gap-1.5  ">
-                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white  " style="">
+                                                            <div class="flex justify-center">
+                                                                <div class="flex max-w-max justify-center" style="">
+                                                                    <div class="fi-ta-text-item inline-flex items-center gap-1.5 justify-center">
+                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white" style="">
                                                                             {{ $item->db }}
                                                                         </span>
                                                                     </div>
@@ -397,13 +397,13 @@
                                                     </div>
                                                 </td>
                                                 @endunless
-                                                <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-owners.owner border border-gray-300" wire:key="edLISNhftVa0ff2EGFT4.table.record.1.column.owners.owner">
+                                                <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 border border-gray-300">
                                                     <div class="fi-ta-col-wrp">
                                                         <div class="fi-ta-text grid w-full gap-y-1 px-3 py-2">
-                                                            <div class="flex ">
-                                                                <div class="flex max-w-max" style="">
-                                                                    <div class="fi-ta-text-item inline-flex items-center gap-1.5  ">
-                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white  " style="">
+                                                            <div class="flex justify-center">
+                                                                <div class="flex max-w-max justify-center" style="">
+                                                                    <div class="fi-ta-text-item inline-flex items-center gap-1.5 justify-center">
+                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white" style="">
                                                                             {{ $item->fulls }}
                                                                         </span>
                                                                     </div>
@@ -412,13 +412,13 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-owners.owner border border-gray-300" wire:key="edLISNhftVa0ff2EGFT4.table.record.1.column.owners.owner">
+                                                <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 border border-gray-300">
                                                     <div class="fi-ta-col-wrp">
                                                         <div class="fi-ta-text grid w-full gap-y-1 px-3 py-2">
-                                                            <div class="flex ">
-                                                                <div class="flex max-w-max" style="">
-                                                                    <div class="fi-ta-text-item inline-flex items-center gap-1.5  ">
-                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white  " style="">
+                                                            <div class="flex justify-center">
+                                                                <div class="flex max-w-max justify-center" style="">
+                                                                    <div class="fi-ta-text-item inline-flex items-center gap-1.5 justify-center">
+                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white" style="">
                                                                             {{ $item->pieces_r }}
                                                                         </span>
                                                                     </div>
@@ -428,13 +428,13 @@
                                                     </div>
                                                 </td>
                                                 @unless($record->fb_status == 0)
-                                                <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-owners.owner border border-gray-300" wire:key="edLISNhftVa0ff2EGFT4.table.record.1.column.owners.owner">
+                                                <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 border border-gray-300">
                                                     <div class="fi-ta-col-wrp">
                                                         <div class="fi-ta-text grid w-full gap-y-1 px-3 py-2">
-                                                            <div class="flex ">
-                                                                <div class="flex max-w-max" style="">
-                                                                    <div class="fi-ta-text-item inline-flex items-center gap-1.5  ">
-                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white  " style="">
+                                                            <div class="flex justify-center">
+                                                                <div class="flex max-w-max justify-center" style="">
+                                                                    <div class="fi-ta-text-item inline-flex items-center gap-1.5 justify-center">
+                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white" style="">
                                                                             {{ $item->fb_r }}
                                                                         </span>
                                                                     </div>
@@ -445,13 +445,13 @@
                                                 </td>
                                                 @endunless
                                                 @unless($record->hb_status == 0)
-                                                <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-owners.owner border border-gray-300" wire:key="edLISNhftVa0ff2EGFT4.table.record.1.column.owners.owner">
+                                                <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 border border-gray-300">
                                                     <div class="fi-ta-col-wrp">
                                                         <div class="fi-ta-text grid w-full gap-y-1 px-3 py-2">
-                                                            <div class="flex ">
-                                                                <div class="flex max-w-max" style="">
-                                                                    <div class="fi-ta-text-item inline-flex items-center gap-1.5  ">
-                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white  " style="">
+                                                            <div class="flex justify-center">
+                                                                <div class="flex max-w-max justify-center" style="">
+                                                                    <div class="fi-ta-text-item inline-flex items-center gap-1.5 justify-center">
+                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white" style="">
                                                                             {{ $item->hb_r }}
                                                                         </span>
                                                                     </div>
@@ -462,13 +462,13 @@
                                                 </td>
                                                 @endunless
                                                 @unless($record->qb_status == 0)
-                                                <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-owners.owner border border-gray-300" wire:key="edLISNhftVa0ff2EGFT4.table.record.1.column.owners.owner">
+                                                <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 border border-gray-300">
                                                     <div class="fi-ta-col-wrp">
                                                         <div class="fi-ta-text grid w-full gap-y-1 px-3 py-2">
-                                                            <div class="flex ">
-                                                                <div class="flex max-w-max" style="">
-                                                                    <div class="fi-ta-text-item inline-flex items-center gap-1.5  ">
-                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white  " style="">
+                                                            <div class="flex justify-center">
+                                                                <div class="flex max-w-max justify-center" style="">
+                                                                    <div class="fi-ta-text-item inline-flex items-center gap-1.5 justify-center">
+                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white" style="">
                                                                             {{ $item->qb_r }}
                                                                         </span>
                                                                     </div>
@@ -479,13 +479,13 @@
                                                 </td>
                                                 @endunless
                                                 @unless($record->eb_status == 0)
-                                                <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-owners.owner border border-gray-300" wire:key="edLISNhftVa0ff2EGFT4.table.record.1.column.owners.owner">
+                                                <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 border border-gray-300">
                                                     <div class="fi-ta-col-wrp">
                                                         <div class="fi-ta-text grid w-full gap-y-1 px-3 py-2">
-                                                            <div class="flex ">
-                                                                <div class="flex max-w-max" style="">
-                                                                    <div class="fi-ta-text-item inline-flex items-center gap-1.5  ">
-                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white  " style="">
+                                                            <div class="flex justify-center">
+                                                                <div class="flex max-w-max justify-center" style="">
+                                                                    <div class="fi-ta-text-item inline-flex items-center gap-1.5 justify-center">
+                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white" style="">
                                                                             {{ $item->eb_r }}
                                                                         </span>
                                                                     </div>
@@ -496,13 +496,13 @@
                                                 </td>
                                                 @endunless
                                                 @unless($record->db_status == 0)
-                                                <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-owners.owner border border-gray-300" wire:key="edLISNhftVa0ff2EGFT4.table.record.1.column.owners.owner">
+                                                <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 border border-gray-300">
                                                     <div class="fi-ta-col-wrp">
                                                         <div class="fi-ta-text grid w-full gap-y-1 px-3 py-2">
-                                                            <div class="flex ">
-                                                                <div class="flex max-w-max" style="">
-                                                                    <div class="fi-ta-text-item inline-flex items-center gap-1.5  ">
-                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white  " style="">
+                                                            <div class="flex justify-center">
+                                                                <div class="flex max-w-max justify-center" style="">
+                                                                    <div class="fi-ta-text-item inline-flex items-center gap-1.5 justify-center">
+                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white" style="">
                                                                             {{ $item->bd_r }}
                                                                         </span>
                                                                     </div>
@@ -512,13 +512,13 @@
                                                     </div>
                                                 </td>
                                                 @endunless
-                                                <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-owners.owner border border-gray-300" wire:key="edLISNhftVa0ff2EGFT4.table.record.1.column.owners.owner">
+                                                <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 border border-gray-300">
                                                     <div class="fi-ta-col-wrp">
                                                         <div class="fi-ta-text grid w-full gap-y-1 px-3 py-2">
-                                                            <div class="flex ">
-                                                                <div class="flex max-w-max" style="">
-                                                                    <div class="fi-ta-text-item inline-flex items-center gap-1.5  ">
-                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white  " style="">
+                                                            <div class="flex justify-center">
+                                                                <div class="flex max-w-max justify-center" style="">
+                                                                    <div class="fi-ta-text-item inline-flex items-center gap-1.5 justify-center">
+                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white" style="">
                                                                             {{ $item->fulls_r }}
                                                                         </span>
                                                                     </div>
@@ -527,13 +527,13 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-owners.owner border border-gray-300" wire:key="edLISNhftVa0ff2EGFT4.table.record.1.column.owners.owner">
+                                                <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 border border-gray-300">
                                                     <div class="fi-ta-col-wrp">
                                                         <div class="fi-ta-text grid w-full gap-y-1 px-3 py-2">
-                                                            <div class="flex ">
-                                                                <div class="flex max-w-max" style="">
-                                                                    <div class="fi-ta-text-item inline-flex items-center gap-1.5  ">
-                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white  " style="">
+                                                            <div class="flex justify-center">
+                                                                <div class="flex max-w-max justify-center" style="">
+                                                                    <div class="fi-ta-text-item inline-flex items-center gap-1.5 justify-center">
+                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white" style="">
                                                                             {{ $item->returns }}
                                                                         </span>
                                                                     </div>
@@ -542,13 +542,13 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-owners.owner border border-gray-300" wire:key="edLISNhftVa0ff2EGFT4.table.record.1.column.owners.owner">
+                                                <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 border border-gray-300">
                                                     <div class="fi-ta-col-wrp">
                                                         <div class="fi-ta-text grid w-full gap-y-1 px-3 py-2">
-                                                            <div class="flex ">
-                                                                <div class="flex max-w-max" style="">
-                                                                    <div class="fi-ta-text-item inline-flex items-center gap-1.5  ">
-                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white  " style="">
+                                                            <div class="flex justify-center">
+                                                                <div class="flex max-w-max justify-center" style="">
+                                                                    <div class="fi-ta-text-item inline-flex items-center gap-1.5 justify-center">
+                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white" style="">
                                                                             {{ $item->faltantes }}
                                                                         </span>
                                                                     </div>
@@ -557,13 +557,13 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-owners.owner border border-gray-300" wire:key="edLISNhftVa0ff2EGFT4.table.record.1.column.owners.owner">
+                                                <td class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 border border-gray-300">
                                                     <div class="fi-ta-col-wrp">
                                                         <div class="fi-ta-text grid w-full gap-y-1 px-3 py-2">
-                                                            <div class="flex ">
-                                                                <div class="flex max-w-max" style="">
-                                                                    <div class="fi-ta-text-item inline-flex items-center gap-1.5  ">
-                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white  " style="">
+                                                            <div class="flex justify-center">
+                                                                <div class="flex max-w-max justify-center" style="">
+                                                                    <div class="fi-ta-text-item inline-flex items-center gap-1.5 justify-center">
+                                                                        <span class="fi-ta-text-item-label text-xs leading-6 text-gray-950 dark:text-white" style="">
                                                                             {{ $item->observation }}
                                                                         </span>
                                                                     </div>
@@ -610,41 +610,69 @@
                                     @foreach ($this->hbTotals as $clientId => $totals)
                                         @if ($client->id == $clientId)
                                             <tr class="fi-ta-row [@media(hover:hover)]:transition [@media(hover:hover)]:duration-75 hover:bg-gray-50 dark:hover:bg-white/5">
-                                                <td colspan="4">{{ $client->name }}</td>
-                                                <td>{{ $totals['pieces'] }}</td>
+                                                <th colspan="4" class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-owners.owner border border-gray-300">
+                                                    {{ $client->name }}
+                                                </th>
+                                                <th class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-owners.owner border border-gray-300">
+                                                    {{ $totals['pieces'] }}
+                                                </th>
                                                 @unless($record->fb_status == 0)
-                                                <td>{{ $totals['fb'] }}</td>
+                                                <th class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-owners.owner border border-gray-300">
+                                                    {{ $totals['fb'] }}</th>
                                                 @endunless
                                                 @unless($record->hb_status == 0)
-                                                <td>{{ $totals['hb'] }}</td>
+                                                <th class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-owners.owner border border-gray-300">
+                                                    {{ $totals['hb'] }}</th>
                                                 @endunless
                                                 @unless($record->qb_status == 0)
-                                                <td>{{ $totals['qb'] }}</td>
+                                                <th class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-owners.owner border border-gray-300">
+                                                    {{ $totals['qb'] }}
+                                                </th>
                                                 @endunless
                                                 @unless($record->eb_status == 0)
-                                                <td>{{ $totals['eb'] }}</td>
+                                                <th class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-owners.owner border border-gray-300">
+                                                    {{ $totals['eb'] }}
+                                                </th>
                                                 @endunless
                                                 @unless($record->db_status == 0)
-                                                <td>{{ $totals['db'] }}</td>
+                                                <th class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-owners.owner border border-gray-300">
+                                                    {{ $totals['db'] }}
+                                                </th>
                                                 @endunless
-                                                <td>{{ $totals['fulls'] }}</td>
-                                                <td>{{ $totals['pieces_r'] }}</td>
+                                                <th class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-owners.owner border border-gray-300">
+                                                    {{ $totals['fulls'] }}
+                                                </th>
+                                                <th class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-owners.owner border border-gray-300">
+                                                    {{ $totals['pieces_r'] }}
+                                                </th>
                                                 @unless($record->fb_status == 0)
-                                                <td>{{ $totals['fb_r'] }}</td>
+                                                <th class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-owners.owner border border-gray-300">
+                                                    {{ $totals['fb_r'] }}
+                                                </th>
                                                 @endunless
                                                 @unless($record->hb_status == 0)
-                                                <td>{{ $totals['hb_r'] }}</td>
+                                                <th class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-owners.owner border border-gray-300">
+                                                    {{ $totals['hb_r'] }}
+                                                </th>
                                                 @endunless
                                                 @unless($record->qb_status == 0)
-                                                <td>{{ $totals['qb_r'] }}</td>
+                                                <th class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-owners.owner border border-gray-300">
+                                                    {{ $totals['qb_r'] }}
+                                                </th>
                                                 @endunless
                                                 @unless($record->eb_status == 0)
-                                                <td>{{ $totals['eb_r'] }}</td>
+                                                <th class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-owners.owner border border-gray-300">
+                                                    {{ $totals['eb_r'] }}
+                                                </th>
                                                 @endunless
                                                 @unless($record->db_status == 0)
-                                                <td>{{ $totals['db_r'] }}</td>
+                                                <th class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-owners.owner border border-gray-300">
+                                                    {{ $totals['db_r'] }}
+                                                </th>
                                                 @endunless
-                                                <td>{{ $totals['fulls_r'] }}</td>
+                                                <th class="fi-ta-cell p-0 first-of-type:ps-1 last-of-type:pe-1 sm:first-of-type:ps-3 sm:last-of-type:pe-3 fi-table-cell-owners.owner border border-gray-300">
+                                                    {{ $totals['fulls_r'] }}
+                                                </th>
                                             </tr>
                                         @endif
                                     @endforeach
